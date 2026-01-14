@@ -1,0 +1,91 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userprefs
+*.csproj.user
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.exe
+*.dll
+*.pdb
+*.tmp
+*.log
+*.bak
+*.old
+*.ilk
+*.meta
+*.mdf
+*.ldf
+*.obj
+*.sdf
+*.vshost.*
+*.intellisense.cache
+*.dsstore
+*.dbmdl
+*.builds
+*.log
+*.docstates
+
+# Packages
+*.nupkg
+# Comment this line if you want to save compiled files for the last build every time
+# for the purpose of debugging with Visual Studio.
+# However, this can also increase the repository size significantly.
+# [Ll]ibs/
+[Pp]ackages/
+# End packages
+
+# Tools
+.bundle/
+# If you make heavy use of "run" commands, you might need to ignore this.
+# .gemini/
+
+# Project files
+*.config
+*.json # Only ignore specific config/json files, not all.
+
+# Specific to ASP.NET Core
+appsettings.Development.json # Often contains local connection strings/secrets
+appsettings.Local.json # Explicitly requested
+appsettings.json # Generally not ignored, but can be if it's environment-specific
+
+# Test Results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Rider
+.idea/
+*.sln.DotSettings.user
+
+# Git History
+.git/
+
+# Node.js
+node_modules/
+
+# Docker
+docker-compose.vs.debug.yml
+docker-compose.vs.release.yml
+
+# Other
+*.zip
+*.rar
+*.7z
+*.gz
+*.tar
+*.iso

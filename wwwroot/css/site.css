@@ -1,0 +1,283 @@
+:root {
+    --primary-dark-blue: #00447F;
+    --midnight-blue: #0B1A2B;
+    --gold: #C6B18A;
+    --dark-gold: #9E8A64;
+    --off-white: #F7F6F3;
+}
+
+body {
+    background-color: var(--off-white);
+    color: var(--midnight-blue);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*----------------- Navbar Customization -----------------*/
+.navbar {
+    background-color: var(--midnight-blue) !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navbar-brand {
+    color: var(--off-white);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar .nav-link {
+    color: var(--off-white) !important;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--gold) !important;
+}
+
+
+/*----------------- Premium Gold Button -----------------*/
+.btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+    color: var(--off-white); /* White text for better contrast on gradient */
+    border: none; /* Remove default borders */
+    border-radius: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle depth */
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-gold:hover {
+    filter: brightness(1.1); /* Slightly brighter for interactive shine */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: translateY(-2px); /* Slight lift */
+}
+
+.btn-outline-gold {
+    color: var(--gold);
+    border-color: var(--gold);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn-outline-gold:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+    border-color: var(--gold);
+}
+
+/*----------------- Hero Section -----------------*/
+.hero-section {
+    background: linear-gradient(rgba(11, 26, 43, 0.7), rgba(11, 26, 43, 0.7)), url('https://via.placeholder.com/1920x800.png/0B1A2B/FFFFFF?text=Premium+Background') no-repeat center center;
+    background-size: cover;
+    color: var(--off-white);
+    padding: 12rem 0;
+    text-align: center;
+}
+
+.hero-section .display-3 {
+    font-weight: 900;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+/*----------------- Card Customization -----------------*/
+.card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: var(--primary-dark-blue);
+    font-weight: bold;
+}
+
+/* Premium News Card Specific Styles */
+.premium-news-card {
+    border: 1px solid #e5e7eb; /* Subtle border */
+    border-radius: 0.5rem; /* Rounded corners for the card container */
+    overflow: hidden; /* Ensures image corners are rounded with card */
+}
+
+.premium-news-card .card-img-top {
+    border-top-left-radius: calc(0.5rem - 1px); /* Match card border-radius */
+    border-top-right-radius: calc(0.5rem - 1px); /* Match card border-radius */
+}
+
+.premium-news-card .card-body {
+    padding: 1.5rem; /* Increased padding for breathing room */
+}
+
+
+/*----------------- News Section -----------------*/
+.news-section {
+    padding: 5rem 0;
+}
+
+.news-section h2 {
+    font-weight: 800;
+    color: var(--primary-dark-blue);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/*----------------- Partners Section -----------------*/
+.partners-section {
+    background-color: #E9ECEF;
+    padding: 4rem 0;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.partners-section img {
+    max-height: 40px;
+    margin: 0 1.5rem;
+}
+
+
+/*----------------- Footer -----------------*/
+.footer {
+    background-color: var(--midnight-blue);
+    color: var(--off-white);
+    padding: 4rem 0 1rem 0;
+}
+
+.footer h5 {
+    color: var(--gold);
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.footer .footer-links a {
+    color: var(--off-white);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer .copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* --- Article Details Page --- */
+.article-content {
+    line-height: 1.8;
+    color: #343a40;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.share-buttons .btn-share {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    margin-right: 0.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.share-buttons .btn-share:hover {
+    opacity: 0.8;
+}
+
+.share-buttons .whatsapp { background-color: #25D366; }
+.share-buttons .linkedin { background-color: #0077B5; }
+.share-buttons .facebook { background-color: #1877F2; }
+.share-buttons .twitter { background-color: #1DA1F2; }
+
+.sidebar-sticky {
+    position: sticky;
+    top: 100px; /* Adjust based on navbar height */
+}
+
+.sidebar-news img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+.sidebar-news a {
+    text-decoration: none;
+    color: var(--primary-dark-blue);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.sidebar-news a:hover {
+    color: var(--gold);
+}
+
+/* --- Contact Page --- */
+.contact-panel {
+    background-color: var(--midnight-blue);
+    color: var(--off-white);
+    padding: 3rem;
+    height: 100%;
+}
+
+.contact-panel h1 {
+    color: var(--off-white);
+    font-weight: 700;
+}
+
+.contact-icon {
+    color: var(--gold);
+    font-size: 1.5rem;
+    width: 30px; /* To align text */
+    text-align: center;
+}
+
+.social-icon {
+    display: inline-flex; /* Use flexbox for centering */
+    justify-content: center;
+    align-items: center;
+    width: 45px; /* Fixed width for circular shape */
+    height: 45px; /* Fixed height for circular shape */
+    border-radius: 50%; /* Make it circular */
+    background: linear-gradient(135deg, var(--gold), var(--dark-gold)); /* Gold gradient background */
+    color: var(--off-white); /* White icon color */
+    font-size: 1.5rem; /* Icon size */
+    margin-right: 1rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Scale up slightly on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.map-container {
+    height: 100%;
+    min-height: 500px;
+}
+
+.map-container iframe {
+    filter: grayscale(100%);
+    width: 100%;
+    height: 100%;
+}

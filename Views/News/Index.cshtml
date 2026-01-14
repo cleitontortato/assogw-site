@@ -1,0 +1,141 @@
+@model IEnumerable<assogw.Models.NewsItem>
+
+@{
+    ViewData["Title"] = "Notícias e Comunicados";
+}
+
+<style>
+    .news-hero {
+        padding: 5rem 0;
+        background-color: var(--midnight-blue);
+        color: var(--off-white);
+        text-align: center;
+        margin-top: 56px; /* Adjust for fixed navbar */
+    }
+
+    .news-hero h1 {
+        color: var(--off-white);
+        font-weight: 800;
+    }
+    
+    .news-card {
+        background-color: #fff;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-img-top {
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+
+    .news-card .card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news-card .card-title {
+        color: var(--primary-dark-blue);
+        font-weight: bold;
+    }
+
+    .news-card .date-badge {
+        background-color: var(--gold);
+        color: var(--midnight-blue);
+        padding: 0.25em 0.6em;
+        font-size: .75em;
+        font-weight: bold;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+    }
+    
+    .news-card .card-text {
+        flex-grow: 1;
+    }
+    
+    .btn-read-more {
+        color: var(--primary-dark-blue);
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .btn-read-more:hover {
+        color: var(--gold);
+        text-decoration: underline;
+    }
+    
+    .search-bar {
+        border-color: var(--primary-dark-blue);
+    }
+    .search-bar:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 0.25rem rgba(198, 177, 138, 0.25);
+    }
+
+</style>
+
+<section class="news-hero">
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <!-- Search/Filter Bar -->
+        <div class="row mb-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-lg search-bar" placeholder="Buscar por palavra-chave...">
+                    <button class="btn btn-gold" type="button">Buscar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- News Grid -->
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 premium-news-card">
+                        <img src="@item.ImageUrl" class="card-img-top" alt="@item.Title">
+                        <div class="card-body p-4">
+                            <div>
+                                <span class="date-badge">@item.PublishDate.ToString("dd MMM, yyyy")</span>
+                            </div>
+                            <h5 class="card-title">@item.Title</h5>
+                            <p class="card-text">@item.Excerpt</p>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn-read-more mt-auto">Ler Mais →</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                </li>
+                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Próxima</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>

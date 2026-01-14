@@ -1,0 +1,165 @@
+@model IEnumerable<assogw.Models.DealershipModel>
+
+@{
+    ViewData["Title"] = "Rede de Concessionárias";
+}
+
+<style>
+    .dealership-header {
+        padding: 5rem 0;
+        background-color: var(--midnight-blue);
+        color: var(--off-white);
+        text-align: center;
+        margin-top: 56px; /* Adjust for fixed navbar */
+    }
+
+    .dealership-header h1 {
+        color: var(--off-white);
+        font-weight: 800;
+    }
+    
+    .typographic-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .typographic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .typographic-card .card-header {
+        background-color: var(--primary-dark-blue);
+        color: var(--off-white);
+        padding: 1rem 1.5rem;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .typographic-card .card-body {
+        padding: 1.5rem;
+        flex-grow: 1;
+    }
+    
+    .typographic-card .card-body p {
+        margin-bottom: 0.5rem;
+        color: #495057;
+    }
+
+    .typographic-card .card-footer {
+        padding: 0;
+        background-color: transparent;
+        border-top: none;
+    }
+
+    .typographic-card .btn-block {
+        display: block;
+        width: 100%;
+        border-radius: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        padding: 0.75rem;
+    }
+    
+    .typographic-card .btn-whatsapp {
+        background-color: #25D366;
+        color: white;
+    }
+    .typographic-card .btn-whatsapp:hover {
+        background-color: #1EAE54;
+        color: white;
+    }
+
+    .dealer-card-container {
+        display: block; /* default */
+    }
+
+    .dealer-card-container.hidden {
+        display: none;
+    }
+
+</style>
+
+<section class="dealership-header">
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="row mb-5 justify-content-center">
+            <div class="col-lg-8">
+                <input type="text" id="searchDealer" class="form-control form-control-lg" placeholder="Buscar por nome ou cidade...">
+            </div>
+        </div>
+
+        <!-- Dealership Grid -->
+        <div class="row" id="dealershipGrid">
+            @if (Model.Any())
+            {
+                @foreach (var dealer in Model)
+                {
+                    <div class="col-lg-4 col-md-6 mb-4 dealer-card-container">
+                        <div class="typographic-card">
+                            <div class="card-header">
+                                @dealer.Name
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Endereço:</strong> @dealer.Address</p>
+                                <p><strong>Cidade:</strong> @dealer.City / @dealer.State</p>
+                                <p><strong>CEP:</strong> @dealer.Zip</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="tel:@dealer.Phone" class="btn btn-block btn-outline-gold">Ligar</a>
+                                <a href="https://wa.me/@dealer.Whatsapp" target="_blank" class="btn btn-block btn-whatsapp">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12">
+                    <div class="alert alert-warning" role="alert">
+                      @ViewData["Error"] ?? "Nenhuma concessionária encontrada."
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchDealer');
+            const dealerCards = document.querySelectorAll('.dealer-card-container');
+
+            searchInput.addEventListener('keyup', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+
+                dealerCards.forEach(card => {
+                    const cardHeader = card.querySelector('.card-header');
+                    const cardBody = card.querySelector('.card-body');
+                    
+                    const name = cardHeader.textContent.toLowerCase();
+                    const city = cardBody.querySelector('p:nth-child(2)').textContent.toLowerCase();
+                    
+                    if (name.includes(searchTerm) || city.includes(searchTerm)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+}

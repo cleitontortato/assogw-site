@@ -1,0 +1,52 @@
+@model assogw.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1 class="display-3">Unindo Forças, Conduzindo o Futuro</h1>
+        <p class="lead col-lg-8 mx-auto">A Associação dos Concessionários GWM representa a força e a união da rede em busca de inovação e excelência no mercado automotivo.</p>
+    </div>
+</section>
+
+<!-- News Section -->
+<section class="news-section">
+    <div class="container">
+        <h2>Últimas Notícias</h2>
+        <div class="row">
+            @foreach (var item in Model.LatestNews)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 premium-news-card">
+                        <img src="@item.ImageUrl" class="card-img-top" alt="@item.Title">
+                        <div class="card-body p-4">
+                            <div>
+                                <span class="date-badge">@item.PublishDate.ToString("dd MMM, yyyy")</span>
+                            </div>
+                            <h5 class="card-title">@item.Title</h5>
+                            <p class="card-text">@item.Excerpt</p>
+                            <a asp-controller="News" asp-action="Details" asp-route-id="@item.Id" class="btn-read-more mt-auto">Ler Mais →</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="text-center mt-4">
+            <a asp-controller="News" asp-action="Index" class="btn btn-outline-gold">Ver Todas as Notícias</a>
+        </div>
+    </div>
+</section>
+
+<!-- Partners Section -->
+<section class="partners-section">
+    <div class="container d-flex justify-content-center align-items-center flex-wrap">
+        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+1" alt="Logo Parceiro 1">
+        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+2" alt="Logo Parceiro 2">
+        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+3" alt="Logo Parceiro 3">
+        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+4" alt="Logo Parceiro 4">
+        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+5" alt="Logo Parceiro 5">
+    </div>
+</section>

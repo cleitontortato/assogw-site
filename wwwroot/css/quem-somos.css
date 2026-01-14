@@ -1,0 +1,7 @@
+/* CSS Additions for Quem Somos page */
+
+/* Note: The specific styles for .internal-hero, .section-title, .icon-box, and .leadership-card have been
+   embedded directly into Views/Home/QuemSomos.cshtml for demonstration purposes,
+   as they are highly specific to this page's layout and hero background image.
+   For a larger project, these would typically be extracted to site.css and
+   managed with more granular classes. */
