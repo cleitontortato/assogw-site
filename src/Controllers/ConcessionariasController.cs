@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO; // For file operations
 using System.Text.Json; // For JSON serialization
 using System.Threading.Tasks;
+using System.Linq;
 using assogw.Models;
 
 namespace assogw.Controllers
@@ -29,10 +30,10 @@ namespace assogw.Controllers
             }
 
             var jsonText = await System.IO.File.ReadAllTextAsync(jsonFilePath);
-            var dealerships = JsonSerializer.Deserialize<List<DealershipModel>>(jsonText);
+            var dealerships = JsonSerializer.Deserialize<List<DealershipModel>>(jsonText) ?? new List<DealershipModel>();
 
             ViewData["Title"] = "Rede de Concessionárias";
-            return View(dealerships);
+            return View(dealerships.OrderBy(x => x.Name).ToList());
         }
     }
 }

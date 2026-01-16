@@ -5,7 +5,7 @@
 }
 
 <!-- Hero Section -->
-<section class="relative h-[80vh] flex items-center justify-center bg-gradient-to-br from-gwm-dark via-gwm-blue to-black text-center px-4">
+<section class="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-gwm-dark via-gwm-blue to-black text-center px-4">
     <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
     <div class="relative z-10 max-w-4xl mx-auto">
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
@@ -62,6 +62,39 @@
         <div class="text-center mt-12">
             <a asp-controller="News" asp-action="Index" class="inline-block px-8 py-3 border-2 border-gwm-gold text-gwm-dark font-bold rounded hover:bg-gwm-gold hover:text-white transition-colors duration-300">
                 Ver Todas as Notícias
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Partners CTA -->
+            <a asp-controller="Parceiros" asp-action="Index" class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 block bg-white border-t-4 border-gwm-gold">
+                <div class="p-10 flex flex-col items-center text-center z-10 relative">
+                    <div class="w-16 h-16 bg-gwm-light rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-handshake text-2xl text-gwm-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-gwm-dark mb-3 group-hover:text-gwm-blue transition-colors">Conheça nossos parceiros</h3>
+                    <span class="text-gwm-gold font-bold uppercase tracking-wide text-sm flex items-center mt-4">
+                        Ver Parceiros <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Dealerships CTA -->
+            <a asp-controller="Concessionarias" asp-action="Index" class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 block bg-white border-t-4 border-gwm-gold">
+                 <div class="p-10 flex flex-col items-center text-center z-10 relative">
+                    <div class="w-16 h-16 bg-gwm-light rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-store text-2xl text-gwm-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-gwm-dark mb-3 group-hover:text-gwm-blue transition-colors">Nossas concessionárias associadas</h3>
+                    <span class="text-gwm-gold font-bold uppercase tracking-wide text-sm flex items-center mt-4">
+                        Encontrar Concessionária <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </span>
+                </div>
             </a>
         </div>
     </div>

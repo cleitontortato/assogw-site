@@ -14,52 +14,18 @@
 
 <section class="py-12 bg-gwm-light min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Search Bar -->
-        <div class="flex justify-center mb-12">
-            <div class="w-full max-w-3xl">
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
-                        <i class="fas fa-search"></i>
-                    </span>
-                    <input type="text" id="searchDealer" class="w-full pl-12 pr-6 py-4 rounded-lg border-2 border-gray-200 focus:border-gwm-blue focus:ring focus:ring-gwm-blue/20 outline-none transition-all shadow-sm text-lg placeholder-gray-400" placeholder="Buscar por nome ou cidade...">
-                </div>
-            </div>
-        </div>
-
         <!-- Dealership Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="dealershipGrid">
             @if (Model.Any())
             {
                 @foreach (var dealer in Model)
                 {
-                    <div class="dealer-card-container flex flex-col h-full">
-                        <div class="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full">
-                            <div class="bg-gwm-blue text-white px-6 py-4 font-bold text-lg dealer-name">
-                                @dealer.Name
-                            </div>
-                            <div class="p-6 flex-grow space-y-3 text-gray-600 dealer-info">
-                                <p class="flex items-start">
-                                    <i class="fas fa-map-marker-alt mt-1 mr-3 text-gwm-gold w-4"></i>
-                                    <span>@dealer.Address</span>
-                                </p>
-                                <p class="flex items-center">
-                                    <i class="fas fa-city mr-3 text-gwm-gold w-4"></i>
-                                    <span class="dealer-city">@dealer.City / @dealer.State</span>
-                                </p>
-                                <p class="flex items-center">
-                                    <i class="fas fa-envelope mr-3 text-gwm-gold w-4"></i>
-                                    <span>@dealer.Zip</span>
-                                </p>
-                            </div>
-                            <div class="p-4 bg-gray-50 border-t border-gray-100 space-y-3">
-                                <a href="tel:@dealer.Phone" class="block w-full text-center py-2 border border-gwm-gold text-gwm-dark font-bold hover:bg-gwm-gold hover:text-white rounded transition-colors uppercase text-sm tracking-wide">
-                                    <i class="fas fa-phone-alt mr-2"></i> Ligar
-                                </a>
-                                <a href="https://wa.me/@dealer.Whatsapp" target="_blank" class="block w-full text-center py-2 bg-[#25D366] text-white hover:bg-[#128C7E] rounded transition-colors font-bold uppercase text-sm tracking-wide shadow-sm">
-                                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-                                </a>
-                            </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-gwm-gold hover:-translate-y-2 transition-all group flex flex-col items-center text-center h-full">
+                        <div class="w-16 h-16 bg-gwm-light rounded-full flex items-center justify-center mb-6">
+                            <i class="bi bi-shop text-2xl text-gwm-gold"></i>
                         </div>
+                        <h3 class="font-serif text-xl font-bold text-gray-800 mb-2">@dealer.Name</h3>
+                        <p class="text-gray-600">@dealer.City / @dealer.State</p>
                     </div>
                 }
             }
@@ -85,25 +51,4 @@
 </section>
 
 @section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchDealer');
-            const dealerCards = document.querySelectorAll('.dealer-card-container');
-
-            searchInput.addEventListener('keyup', function(e) {
-                const searchTerm = e.target.value.toLowerCase();
-
-                dealerCards.forEach(card => {
-                    const name = card.querySelector('.dealer-name').textContent.toLowerCase();
-                    const cityInfo = card.querySelector('.dealer-city').textContent.toLowerCase();
-                    
-                    if (name.includes(searchTerm) || cityInfo.includes(searchTerm)) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                });
-            });
-        });
-    </script>
 }
