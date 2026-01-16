@@ -5,26 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ASSOGW</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'gwm-blue': '#00447F',
-                        'gwm-dark': '#0B1A2B',
-                        'gwm-gold': '#C6B18A',
-                        'gwm-bronze': '#9E8A64',
-                        'gwm-light': '#F7F6F3',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="~/js/tailwind.config.js"></script>
 
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,7 +23,7 @@
     @await RenderSectionAsync("Header", required: false)
 
 </head>
-<body class="bg-gwm-light font-sans text-gray-800 flex flex-col min-h-screen">
+<body class="bg-gwm-light font-sans antialiased text-gray-700 leading-relaxed flex flex-col min-h-screen">
     <header>
         <nav class="fixed w-full top-0 z-50 bg-gwm-dark/90 backdrop-blur shadow-lg transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,6 +37,7 @@
                             <a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Quem Somos</a>
                             <a asp-area="" asp-controller="News" asp-action="Index" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Notícias</a>
                             <a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Concessionárias</a>
+                            <a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Parceiros</a>
                             <a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contato</a>
                         </div>
                     </div>
@@ -72,6 +61,7 @@
                     <a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Quem Somos</a>
                     <a asp-area="" asp-controller="News" asp-action="Index" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Notícias</a>
                     <a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Concessionárias</a>
+                    <a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
                     <a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Contato</a>
                     <a href="#" class="text-white bg-gradient-to-r from-gwm-gold to-gwm-bronze block px-3 py-2 rounded-md text-base font-medium mt-4 text-center">Área do Associado</a>
                 </div>
@@ -96,6 +86,7 @@
                         <li><a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gray-400 hover:text-white transition-colors">Quem Somos</a></li>
                         <li><a asp-area="" asp-controller="News" asp-action="Index" class="text-gray-400 hover:text-white transition-colors">Notícias</a></li>
                         <li><a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gray-400 hover:text-white transition-colors">Concessionárias</a></li>
+                        <li><a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gray-400 hover:text-white transition-colors">Parceiros</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gray-400 hover:text-white transition-colors">Contato</a></li>
                     </ul>
                 </div>

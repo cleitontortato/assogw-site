@@ -12,11 +12,15 @@ namespace assogw.Controllers
 
         private static string _getRandomHexColor()
         {
-            // Generate a random color, avoiding very dark or very light colors to ensure good contrast
-            int r = _random.Next(50, 200);
-            int g = _random.Next(50, 200);
-            int b = _random.Next(50, 200);
-            return $"#{r:X2}{g:X2}{b:X2}";
+            var colors = new[] 
+            {
+                "#00447F", // Deep Blue
+                "#0B1A2B", // Midnight Blue
+                "#C6B18A", // Gold
+                "#9E8A64", // Bronze
+                "#4B5563"  // Cool Gray
+            };
+            return colors[_random.Next(colors.Length)];
         }
 
         // TODO: Refactor dummy news generation into a service for better architecture and testability.
