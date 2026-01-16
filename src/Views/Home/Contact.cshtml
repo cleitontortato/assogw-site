@@ -2,61 +2,76 @@
     ViewData["Title"] = "Contato";
 }
 
-<div class="container-fluid">
-    <div class="row g-0" style="margin-top: 56px;">
-        <!-- Left Column: Info Panel -->
-        <div class="col-lg-5">
-            <div class="contact-panel d-flex flex-column justify-content-center">
-                <h1 class="mb-5">Entre em Contato</h1>
+<div class="flex flex-col md:flex-row min-h-[calc(100vh-5rem)]">
+    <!-- Left Column: Info Panel -->
+    <div class="w-full md:w-5/12 bg-gwm-dark text-white p-10 lg:p-16 flex flex-col justify-center relative overflow-hidden">
+        <!-- Decorative Background Element -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-gwm-blue opacity-20 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-60 h-60 rounded-full bg-gwm-gold opacity-10 blur-3xl"></div>
 
-                <div class="contact-item d-flex mb-4">
-                    <i class="contact-icon fas fa-map-marker-alt me-4"></i>
+        <div class="relative z-10">
+            <h1 class="text-3xl md:text-4xl font-bold mb-10 text-white border-l-4 border-gwm-gold pl-6">
+                Entre em <br/> <span class="text-gwm-gold">Contato</span>
+            </h1>
+
+            <div class="space-y-8 mb-12">
+                <div class="flex items-start group">
+                    <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mr-6 text-gwm-gold group-hover:bg-gwm-gold group-hover:text-white transition-colors duration-300 flex-shrink-0">
+                        <i class="fas fa-map-marker-alt text-xl"></i>
+                    </div>
                     <div>
-                        <strong>Endereço</strong>
-                        <p class="mb-0">Av. Europa, 68 - Jardim Europa, São Paulo - SP</p>
+                        <strong class="block text-lg mb-1 text-white">Endereço</strong>
+                        <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Av. Europa, 68 - Jardim Europa, <br/>São Paulo - SP</p>
                     </div>
                 </div>
 
-                <div class="contact-item d-flex mb-4">
-                    <i class="contact-icon fas fa-phone-alt me-4"></i>
+                <div class="flex items-start group">
+                    <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mr-6 text-gwm-gold group-hover:bg-gwm-gold group-hover:text-white transition-colors duration-300 flex-shrink-0">
+                        <i class="fas fa-phone-alt text-xl"></i>
+                    </div>
                     <div>
-                        <strong>Telefone</strong>
-                        <p class="mb-0">(11) 4003-7213</p>
+                        <strong class="block text-lg mb-1 text-white">Telefone</strong>
+                        <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">(11) 4003-7213</p>
                     </div>
                 </div>
 
-                <div class="contact-item d-flex mb-5">
-                    <i class="contact-icon fas fa-envelope me-4"></i>
-                    <div>
-                        <strong>Email</strong>
-                        <p class="mb-0">contato@assogw.com.br</p>
+                <div class="flex items-start group">
+                    <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mr-6 text-gwm-gold group-hover:bg-gwm-gold group-hover:text-white transition-colors duration-300 flex-shrink-0">
+                        <i class="fas fa-envelope text-xl"></i>
                     </div>
-                </div>
-
-                <div class="mt-auto">
-                    <h5 class="mb-3">Siga-nos</h5>
-                    <div class="d-flex">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <div>
+                        <strong class="block text-lg mb-1 text-white">Email</strong>
+                        <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">contato@assogw.com.br</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Right Column: Map -->
-        <div class="col-lg-7">
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.199509292949!2d-46.68112108502219!3d-23.56133278468303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce577a4a5bf29d%3A0x8f7f4e8b8c5a4d33!2sAv.%20Europa%2C%2068%20-%20Jardim%20Europa%2C%20São%20Paulo%20-%20SP%2C%2001449-001!5e0!3m2!1spt-BR!2sbr!4v1673721345678!5m2!1spt-BR!2sbr" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <div class="mt-auto">
+                <h5 class="text-sm uppercase tracking-wider text-gray-500 mb-6 font-semibold">Siga-nos</h5>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gradient-to-br from-gwm-gold to-gwm-bronze text-white flex items-center justify-center hover:scale-110 hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gradient-to-br from-gwm-gold to-gwm-bronze text-white flex items-center justify-center hover:scale-110 hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gradient-to-br from-gwm-gold to-gwm-bronze text-white flex items-center justify-center hover:scale-110 hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Right Column: Map -->
+    <div class="w-full md:w-7/12 h-[50vh] md:h-auto relative bg-gray-200">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.199509292949!2d-46.68112108502219!3d-23.56133278468303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce577a4a5bf29d%3A0x8f7f4e8b8c5a4d33!2sAv.%20Europa%2C%2068%20-%20Jardim%20Europa%2C%20São%20Paulo%20-%20SP%2C%2001449-001!5e0!3m2!1spt-BR!2sbr!4v1673721345678!5m2!1spt-BR!2sbr" 
+            class="w-full h-full grayscale hover:grayscale-0 transition-all duration-700 filter"
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
 </div>

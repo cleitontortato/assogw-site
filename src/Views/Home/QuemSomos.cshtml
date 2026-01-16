@@ -2,165 +2,134 @@
     ViewData["Title"] = "Quem Somos";
 }
 
-<style>
-    /* Specific styles for Quem Somos page */
-    .internal-hero {
-        background: linear-gradient(rgba(11, 26, 43, 0.8), rgba(11, 26, 43, 0.8)), url('https://via.placeholder.com/1920x400.png/00447F/FFFFFF?text=Quem+Somos') no-repeat center center;
-        background-size: cover;
-        color: var(--off-white);
-        padding: 6rem 0;
-        text-align: center;
-        margin-top: 56px; /* Adjust for fixed navbar height */
-    }
-
-    .internal-hero h1 {
-        font-weight: 700;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-    }
-
-    .section-title {
-        color: var(--primary-dark-blue);
-        font-weight: 800;
-        margin-bottom: 3rem;
-        text-align: center;
-    }
-
-    .icon-box {
-        text-align: center;
-        padding: 2rem;
-        border-radius: 5px;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .icon-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .icon-box i {
-        font-size: 3rem;
-        color: var(--gold);
-        margin-bottom: 1rem;
-    }
-
-    .leadership-card {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .leadership-card img {
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 3px solid var(--gold);
-        margin-bottom: 1rem;
-    }
-
-    .leadership-card h5 {
-        color: var(--primary-dark-blue);
-        font-weight: bold;
-    }
-
-    .leadership-card p {
-        color: var(--midnight-blue);
-        font-size: 0.9rem;
-    }
-
-</style>
-
-<section class="internal-hero">
-    <div class="container">
-        <h1>@ViewData["Title"]</h1>
+<!-- Internal Hero -->
+<section class="h-64 relative flex items-center justify-center bg-gwm-dark mt-20 overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://via.placeholder.com/1920x400.png/00447F/FFFFFF?text=Quem+Somos')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-gwm-dark via-transparent to-transparent"></div>
+    <div class="relative z-10 text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white drop-shadow-md tracking-tight">@ViewData["Title"]</h1>
+        <div class="w-16 h-1 bg-gwm-gold mx-auto mt-4 rounded-full"></div>
     </div>
 </section>
 
-<section class="py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="section-title text-start">Nossa História</h2>
-                <p class="lead">
-                    A ASSOGW nasceu da visão de unir forças e paixões em torno da marca GWM no Brasil. Desde a sua fundação,
-                    temos trabalhado incansavelmente para promover a colaboração entre os concessionários,
-                    garantindo a excelência no atendimento e a satisfação dos clientes em todo o território nacional.
-                </p>
-                <p>
-                    Com um mercado automotivo em constante evolução, a ASSOGW posiciona-se como um pilar de inovação,
-                    adaptação e crescimento sustentável para todos os seus membros. Acreditamos que, juntos,
-                    podemos ir além, superando desafios e alcançando novos patamares de sucesso.
-                </p>
+<!-- Intro Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div class="lg:w-1/2">
+                <h2 class="text-3xl font-bold text-gwm-dark mb-6 relative inline-block">
+                    Nossa História
+                    <span class="absolute bottom-0 left-0 w-1/3 h-1 bg-gradient-to-r from-gwm-gold to-gwm-bronze rounded-full"></span>
+                </h2>
+                <div class="prose prose-lg text-gray-600 leading-relaxed text-justify">
+                    <p class="mb-4">
+                        A ASSOGW nasceu da visão de unir forças e paixões em torno da marca GWM no Brasil. Desde a sua fundação,
+                        temos trabalhado incansavelmente para promover a colaboração entre os concessionários,
+                        garantindo a excelência no atendimento e a satisfação dos clientes em todo o território nacional.
+                    </p>
+                    <p>
+                        Com um mercado automotivo em constante evolução, a ASSOGW posiciona-se como um pilar de inovação,
+                        adaptação e crescimento sustentável para todos os seus membros. Acreditamos que, juntos,
+                        podemos ir além, superando desafios e alcançando novos patamares de sucesso.
+                    </p>
+                </div>
             </div>
-            <div class="col-lg-6 text-center mt-4 mt-lg-0">
-                <img src="https://via.placeholder.com/600x400.png/00447F/FFFFFF?text=ASSOGW+History" class="img-fluid rounded shadow-lg" alt="História ASSOGW">
+            <div class="lg:w-1/2 relative">
+                <div class="absolute -inset-4 bg-gwm-gold/20 rounded-xl transform rotate-3 z-0"></div>
+                <img src="https://via.placeholder.com/600x400.png/00447F/FFFFFF?text=ASSOGW+History" class="relative z-10 w-full rounded-xl shadow-2xl transform hover:-translate-y-2 transition-transform duration-500" alt="História ASSOGW">
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title">Missão, Visão e Valores</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="icon-box bg-white shadow-sm">
-                    <i class="bi bi-bullseye"></i> <!-- Placeholder for icon -->
-                    <h5>Missão</h5>
-                    <p>Promover o desenvolvimento contínuo da rede de concessionários GWM, fomentando a inovação e a excelência operacional.</p>
+<!-- Mission, Vision, Values -->
+<section class="py-20 bg-gwm-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gwm-dark">Missão, Visão e Valores</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-gwm-gold to-gwm-bronze mx-auto mt-4"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Mission -->
+            <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-gwm-gold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                <div class="w-16 h-16 bg-gwm-light rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gwm-gold/10 transition-colors">
+                    <i class="bi bi-bullseye text-3xl text-gwm-gold"></i>
                 </div>
+                <h5 class="text-xl font-bold text-gwm-dark text-center mb-4">Missão</h5>
+                <p class="text-gray-600 text-center leading-relaxed">Promover o desenvolvimento contínuo da rede de concessionários GWM, fomentando a inovação e a excelência operacional.</p>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="icon-box bg-white shadow-sm">
-                    <i class="bi bi-eye"></i> <!-- Placeholder for icon -->
-                    <h5>Visão</h5>
-                    <p>Ser a associação referência no setor automotivo, reconhecida pela força, união e representatividade de seus membros.</p>
+            
+            <!-- Vision -->
+            <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-gwm-gold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                <div class="w-16 h-16 bg-gwm-light rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gwm-gold/10 transition-colors">
+                    <i class="bi bi-eye text-3xl text-gwm-gold"></i>
                 </div>
+                <h5 class="text-xl font-bold text-gwm-dark text-center mb-4">Visão</h5>
+                <p class="text-gray-600 text-center leading-relaxed">Ser a associação referência no setor automotivo, reconhecida pela força, união e representatividade de seus membros.</p>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="icon-box bg-white shadow-sm">
-                    <i class="bi bi-award"></i> <!-- Placeholder for icon -->
-                    <h5>Valores</h5>
-                    <p>Ética, Transparência, Colaboração, Inovação e Compromisso com a Qualidade.</p>
+            
+            <!-- Values -->
+            <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-gwm-gold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                <div class="w-16 h-16 bg-gwm-light rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gwm-gold/10 transition-colors">
+                    <i class="bi bi-award text-3xl text-gwm-gold"></i>
                 </div>
+                <h5 class="text-xl font-bold text-gwm-dark text-center mb-4">Valores</h5>
+                <p class="text-gray-600 text-center leading-relaxed">Ética, Transparência, Colaboração, Inovação e Compromisso com a Qualidade.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-5">
-    <div class="container">
-        <h2 class="section-title">Nossa Liderança</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-4 col-sm-6 leadership-card">
-                <img src="https://via.placeholder.com/150/C6B18A/0B1A2B?text=Membro+1" alt="Membro da Diretoria">
-                <h5>João Silva</h5>
-                <p>Presidente</p>
+<!-- Leadership -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gwm-dark text-center mb-16">Nossa Liderança</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Member 1 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group border border-gray-50">
+                <div class="relative inline-block mb-6">
+                    <div class="absolute inset-0 bg-gwm-gold rounded-full transform rotate-6 scale-105 opacity-20 group-hover:rotate-12 transition-transform duration-500"></div>
+                    <img src="https://via.placeholder.com/150/C6B18A/0B1A2B?text=Membro+1" alt="João Silva" class="relative w-32 h-32 rounded-full object-cover border-4 border-white shadow-md mx-auto">
+                </div>
+                <h5 class="text-lg font-bold text-gwm-blue mb-1">João Silva</h5>
+                <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Presidente</p>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 leadership-card">
-                <img src="https://via.placeholder.com/150/C6B18A/0B1A2B?text=Membro+2" alt="Membro da Diretoria">
-                <h5>Maria Oliveira</h5>
-                <p>Vice-Presidente</p>
+
+            <!-- Member 2 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group border border-gray-50">
+                <div class="relative inline-block mb-6">
+                    <div class="absolute inset-0 bg-gwm-gold rounded-full transform rotate-6 scale-105 opacity-20 group-hover:rotate-12 transition-transform duration-500"></div>
+                    <img src="https://via.placeholder.com/150/C6B18A/0B1A2B?text=Membro+2" alt="Maria Oliveira" class="relative w-32 h-32 rounded-full object-cover border-4 border-white shadow-md mx-auto">
+                </div>
+                <h5 class="text-lg font-bold text-gwm-blue mb-1">Maria Oliveira</h5>
+                <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Vice-Presidente</p>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 leadership-card">
-                <img src="https://via.placeholder.com/150/C6B18A/0B1A2B?text=Membro+3" alt="Membro da Diretoria">
-                <h5>Carlos Souza</h5>
-                <p>Diretor Financeiro</p>
+
+            <!-- Member 3 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group border border-gray-50">
+                <div class="relative inline-block mb-6">
+                    <div class="absolute inset-0 bg-gwm-gold rounded-full transform rotate-6 scale-105 opacity-20 group-hover:rotate-12 transition-transform duration-500"></div>
+                    <img src="https://via.placeholder.com/150/C6B18A/0B1A2B?text=Membro+3" alt="Carlos Souza" class="relative w-32 h-32 rounded-full object-cover border-4 border-white shadow-md mx-auto">
+                </div>
+                <h5 class="text-lg font-bold text-gwm-blue mb-1">Carlos Souza</h5>
+                <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Diretor Financeiro</p>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 leadership-card">
-                <img src="https://via.placeholder.com/150/C6B18A/0B1A2B?text=Membro+4" alt="Membro da Diretoria">
-                <h5>Ana Pereira</h5>
-                <p>Diretora de Marketing</p>
+
+            <!-- Member 4 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group border border-gray-50">
+                <div class="relative inline-block mb-6">
+                    <div class="absolute inset-0 bg-gwm-gold rounded-full transform rotate-6 scale-105 opacity-20 group-hover:rotate-12 transition-transform duration-500"></div>
+                    <img src="https://via.placeholder.com/150/C6B18A/0B1A2B?text=Membro+4" alt="Ana Pereira" class="relative w-32 h-32 rounded-full object-cover border-4 border-white shadow-md mx-auto">
+                </div>
+                <h5 class="text-lg font-bold text-gwm-blue mb-1">Ana Pereira</h5>
+                <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Diretora de Marketing</p>
             </div>
         </div>
     </div>
 </section>
 
 @section Scripts {
-    <!-- Bootstrap Icons (if used for mission/vision/values) -->
+    <!-- Bootstrap Icons (kept for mission/vision/values icons as per requirement or if not replaced by FontAwesome) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 }
