@@ -77,6 +77,11 @@ Thumbs.db
 
 # Node.js
 node_modules/
+!package.json
+!package-lock.json
+
+# Tailwind compiled output
+wwwroot/css/output.css
 
 # Docker
 docker-compose.vs.debug.yml

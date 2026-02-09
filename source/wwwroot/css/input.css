@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+    --color-gwm-blue: #00447F;
+    --color-gwm-dark: #0B1A2B;
+    --color-gwm-gold: #C6B18A;
+    --color-gwm-bronze: #9E8A64;
+    --color-gwm-light: #F7F6F3;
+
+    --font-serif: 'Unna', serif;
+    --font-sans: 'Lato', sans-serif;
+
+    --leading-extra-loose: 2.0;
+}
