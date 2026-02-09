@@ -25,5 +25,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+app.MapGet("/health", () => Results.Ok("healthy"));
 
 app.Run();

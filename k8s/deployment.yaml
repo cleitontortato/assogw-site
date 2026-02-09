@@ -1,0 +1,83 @@
+---
+# ConfigMap for environment variables
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: assogw-site-config
+  labels:
+    app: assogw-site
+data:
+  ASPNETCORE_ENVIRONMENT: "Production"
+  TZ: "America/Sao_Paulo"
+
+---
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assogw-site
+  labels:
+    app: assogw-site
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: assogw-site
+  template:
+    metadata:
+      labels:
+        app: assogw-site
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: assogw-site
+          image: ghcr.io/cleitontortato/assogw-site:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: assogw-site-config
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+      restartPolicy: Always
+
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: assogw-site-service
+  labels:
+    app: assogw-site
+spec:
+  type: ClusterIP
+  selector:
+    app: assogw-site
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      protocol: TCP
