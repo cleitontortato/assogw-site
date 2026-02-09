@@ -7,25 +7,30 @@
     var bronzePartners = Model.Where(p => p.Category == "Bronze").ToList();
 }
 
-<div class="container mx-auto px-4 py-12">
-    <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-serif font-bold text-gwm-blue mb-4">Nossos Parceiros</h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Conheça as empresas que caminham junto com a ASSOGW para fortalecer a rede GWM no Brasil.</p>
+<!-- Page Header -->
+<section class="pt-32 pb-16 bg-white border-b border-gwm-gray/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="date-badge block mb-4">Rede</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-gwm-dark">Nossos Parceiros</h1>
+        <p class="text-lg text-gwm-charcoal/60 max-w-2xl mt-6">Conheça as empresas que caminham junto com a ASSOGW para fortalecer a rede GWM no Brasil.</p>
     </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
 
     <!-- Gold Section -->
     @if (goldPartners.Any())
     {
-        <section class="mb-16">
-            <h2 class="text-3xl font-serif font-bold text-gwm-gold mb-8 text-center border-b border-gwm-gold/20 pb-4 inline-block w-full">Patrocinadores Gold</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section>
+            <h2 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 mb-8 font-sans font-medium">Patrocinadores Gold</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @foreach (var partner in goldPartners)
                 {
-                    <div class="bg-white rounded-xl shadow-lg border-2 border-gwm-gold p-8 flex flex-col items-center justify-center text-center h-full hover:-translate-y-2 transition-transform duration-300">
-                         <div class="w-32 h-32 rounded-full bg-white border border-gray-100 shadow-inner flex items-center justify-center mb-6 p-4">
+                    <div class="bg-white border border-gwm-gray/40 p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-24 h-24 flex items-center justify-center mb-6 p-4">
                             <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain" />
                         </div>
-                        <h3 class="text-xl font-serif font-bold text-gray-800">@partner.Name</h3>
+                        <h3 class="text-lg font-serif text-gwm-dark">@partner.Name</h3>
                     </div>
                 }
             </div>
@@ -35,16 +40,16 @@
     <!-- Silver Section -->
     @if (silverPartners.Any())
     {
-        <section class="mb-16">
-            <h2 class="text-2xl font-serif font-bold text-gray-500 mb-8 text-center border-b border-gray-300 pb-4 inline-block w-full">Patrocinadores Silver</h2>
+        <section>
+            <h2 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 mb-8 font-sans font-medium">Patrocinadores Silver</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 @foreach (var partner in silverPartners)
                 {
-                    <div class="bg-white rounded-xl shadow border-2 border-gray-400 p-6 flex flex-col items-center justify-center text-center h-full hover:-translate-y-1 transition-transform duration-300">
-                        <div class="w-24 h-24 rounded-full bg-white border border-gray-100 shadow-inner flex items-center justify-center mb-4 p-3">
+                    <div class="bg-white border border-gwm-gray/30 p-6 flex flex-col items-center justify-center text-center">
+                        <div class="w-20 h-20 flex items-center justify-center mb-4 p-3">
                             <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain" />
                         </div>
-                        <h3 class="text-lg font-serif font-bold text-gray-700">@partner.Name</h3>
+                        <h3 class="text-base font-serif text-gwm-dark">@partner.Name</h3>
                     </div>
                 }
             </div>
@@ -55,15 +60,15 @@
     @if (bronzePartners.Any())
     {
         <section>
-            <h2 class="text-xl font-serif font-bold text-gwm-bronze mb-8 text-center border-b border-gwm-bronze/20 pb-4 inline-block w-full">Patrocinadores Bronze</h2>
+            <h2 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 mb-8 font-sans font-medium">Patrocinadores Bronze</h2>
             <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
                 @foreach (var partner in bronzePartners)
                 {
-                    <div class="bg-white rounded-xl shadow-sm border border-gwm-bronze p-4 flex flex-col items-center justify-center text-center h-full hover:shadow-md transition-shadow duration-300">
-                        <div class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-inner flex items-center justify-center mb-3 p-2">
-                             <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain" />
+                    <div class="bg-white border border-gwm-gray/20 p-4 flex flex-col items-center justify-center text-center">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3 p-2">
+                            <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain" />
                         </div>
-                        <h3 class="text-base font-serif font-bold text-gray-600">@partner.Name</h3>
+                        <h3 class="text-sm font-serif text-gwm-charcoal/70">@partner.Name</h3>
                     </div>
                 }
             </div>

@@ -2,21 +2,16 @@
 
 @{
     ViewData["Title"] = Model.Article.Title;
-    var articleUrl = $"https://www.assogw.com.br/News/Details/{Model.Article.Id}"; // Placeholder URL
+    var articleUrl = $"https://www.assogw.com.br/News/Details/{Model.Article.Id}";
 }
 
 @section Header {
-    <!-- SEO and Social Media Meta Tags -->
     <meta name="description" content="@Model.Article.Excerpt" />
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="@articleUrl" />
     <meta property="og:title" content="@Model.Article.Title" />
     <meta property="og:description" content="@Model.Article.Excerpt" />
     <meta property="og:image" content="@Model.Article.ImageUrl" />
-
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="@articleUrl" />
     <meta property="twitter:title" content="@Model.Article.Title" />
@@ -24,100 +19,80 @@
     <meta property="twitter:image" content="@Model.Article.ImageUrl" />
 }
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 pt-10 pb-20">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-        <!-- Main Article Content -->
-        <div class="lg:col-span-8">
-            <article class="bg-white p-8 md:p-12 rounded-xl shadow-sm border border-gray-100">
-                <header class="mb-8">
-                    <h1 class="text-3xl md:text-5xl font-extrabold text-gwm-dark mb-6 leading-tight">@Model.Article.Title</h1>
-                    <div class="flex flex-wrap items-center text-gray-500 text-sm md:text-base border-b border-gray-100 pb-6">
-                        <address class="not-italic mr-6 flex items-center">
-                            <span class="font-bold text-gwm-blue mr-2">Por:</span> 
-                            <a href="#" rel="author" class="hover:text-gwm-gold transition-colors">@Model.Article.Author</a>
-                        </address>
-                        <time datetime="@Model.Article.PublishDate.ToString("yyyy-MM-dd")" class="flex items-center">
-                            <i class="far fa-calendar-alt mr-2 text-gwm-gold"></i>
-                            @Model.Article.PublishDate.ToString("dd 'de' MMMM 'de' yyyy")
-                        </time>
-                    </div>
-                </header>
-                
-                <div class="mb-10 rounded-xl overflow-hidden shadow-lg">
-                    <img src="@Model.Article.ImageUrl" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700" alt="@Model.Article.Title">
-                </div>
+<article class="pt-32 pb-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Article Header -->
+        <header class="mb-12">
+            <span class="date-badge block mb-4">
+                <time datetime="@Model.Article.PublishDate.ToString("yyyy-MM-dd")">
+                    @Model.Article.PublishDate.ToString("dd 'de' MMMM 'de' yyyy")
+                </time>
+            </span>
+            <h1 class="text-3xl md:text-5xl font-serif text-gwm-dark leading-tight mb-6">@Model.Article.Title</h1>
+            <p class="text-sm text-gwm-charcoal/50">
+                Por <span class="text-gwm-charcoal">@Model.Article.Author</span>
+            </p>
+        </header>
 
-                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                    <p class="text-xl text-gray-800 font-medium mb-6 border-l-4 border-gwm-gold pl-4 italic">
-                        @Model.Article.Excerpt
-                    </p>
-                    <p class="mb-6">
-                        A inovação contínua é um dos pilares da GWM, e o novo lançamento Híbrido é a prova viva desse compromisso. 
-                        Com uma combinação de motor elétrico e a combustão, o veículo oferece uma experiência de condução 
-                        silenciosa e eficiente, sem comprometer a potência e o desempenho que os clientes esperam.
-                    </p>
-                    <p class="mb-6">
-                        A tecnologia embarcada inclui um sistema de infotainment de última geração, assistentes de condução 
-                        avançados e um acabamento interno que rivaliza com marcas de luxo consolidadas. A ASSOGW, 
-                        representando a rede de concessionários, está otimista de que este modelo será um marco nas vendas 
-                        e na percepção da marca no Brasil.
-                    </p>
-                </div>
-
-                <!-- Share Buttons -->
-                <div class="mt-12 pt-8 border-t border-gray-100">
-                    <h5 class="text-lg font-bold text-gwm-dark mb-4">Compartilhe</h5>
-                    <div class="flex space-x-3">
-                        <a href="https://wa.me/?text=@(Uri.EscapeDataString(Model.Article.Title + " " + articleUrl))" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-[#25D366] text-white hover:bg-[#128C7E] transition-colors shadow-sm">
-                            <i class="fab fa-whatsapp text-lg"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=@articleUrl&title=@(Uri.EscapeDataString(Model.Article.Title))" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-[#0077b5] text-white hover:bg-[#005582] transition-colors shadow-sm">
-                            <i class="fab fa-linkedin-in text-lg"></i>
-                        </a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=@articleUrl" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-[#1877F2] text-white hover:bg-[#0c5dc7] transition-colors shadow-sm">
-                            <i class="fab fa-facebook-f text-lg"></i>
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?url=@articleUrl&text=@(Uri.EscapeDataString(Model.Article.Title))" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-black text-white hover:bg-gray-800 transition-colors shadow-sm">
-                            <i class="fab fa-twitter text-lg"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
+        <!-- Featured Image -->
+        <div class="mb-12 overflow-hidden">
+            <img src="@Model.Article.ImageUrl" class="w-full h-auto object-cover" alt="@Model.Article.Title">
         </div>
 
-        <!-- Sidebar -->
-        <div class="lg:col-span-4">
-            <div class="sticky top-24 space-y-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h4 class="text-xl font-bold text-gwm-dark mb-6 border-b-2 border-gwm-gold pb-2 inline-block">Notícias Recentes</h4>
-                    <div class="space-y-6">
-                        @foreach (var recent in Model.RecentNews)
-                        {
-                            <div class="group flex items-start space-x-4">
-                                <div class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden relative">
-                                    <img src="@recent.ImageUrl" alt="@recent.Title" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                                </div>
-                                <div class="flex-grow">
-                                    <h6 class="text-sm font-bold text-gwm-dark leading-tight mb-1 group-hover:text-gwm-blue transition-colors">
-                                        <a asp-action="Details" asp-route-id="@recent.Id">@recent.Title</a>
-                                    </h6>
-                                    <span class="text-xs text-gray-500 font-medium">@recent.PublishDate.ToString("dd MMM, yyyy")</span>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-                
-                <!-- Newsletter or Ad Placeholder -->
-                <div class="bg-gradient-to-br from-gwm-dark to-gwm-blue p-8 rounded-xl shadow-lg text-center text-white relative overflow-hidden">
-                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-                    <div class="relative z-10">
-                         <h5 class="text-xl font-bold mb-3">Fique Atualizado</h5>
-                         <p class="text-sm text-gray-200 mb-6">Receba as últimas novidades da rede GWM diretamente no seu email.</p>
-                         <button class="w-full py-2 bg-gwm-gold text-gwm-dark font-bold rounded shadow hover:bg-white hover:text-gwm-blue transition-colors">Inscrever-se</button>
-                    </div>
-                </div>
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none text-gwm-charcoal/80 leading-relaxed">
+            <p class="text-xl text-gwm-charcoal/70 mb-8 border-l-2 border-gwm-gray pl-6 italic">
+                @Model.Article.Excerpt
+            </p>
+            <p class="mb-6">
+                A inovação contínua é um dos pilares da GWM, e o novo lançamento Híbrido é a prova viva desse compromisso.
+                Com uma combinação de motor elétrico e a combustão, o veículo oferece uma experiência de condução
+                silenciosa e eficiente, sem comprometer a potência e o desempenho que os clientes esperam.
+            </p>
+            <p class="mb-6">
+                A tecnologia embarcada inclui um sistema de infotainment de última geração, assistentes de condução
+                avançados e um acabamento interno que rivaliza com marcas de luxo consolidadas. A ASSOGW,
+                representando a rede de concessionários, está otimista de que este modelo será um marco nas vendas
+                e na percepção da marca no Brasil.
+            </p>
+        </div>
+
+        <!-- Share Buttons -->
+        <div class="mt-16 pt-8 border-t border-gwm-gray/30">
+            <h5 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 mb-5 font-sans font-medium">Compartilhe</h5>
+            <div class="flex space-x-3">
+                <a href="https://wa.me/?text=@(Uri.EscapeDataString(Model.Article.Title + " " + articleUrl))" target="_blank" class="w-9 h-9 rounded-full border border-gwm-gray/50 text-gwm-charcoal/50 flex items-center justify-center hover:border-gwm-charcoal hover:text-gwm-charcoal transition-colors">
+                    <i class="fab fa-whatsapp text-sm"></i>
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=@articleUrl&title=@(Uri.EscapeDataString(Model.Article.Title))" target="_blank" class="w-9 h-9 rounded-full border border-gwm-gray/50 text-gwm-charcoal/50 flex items-center justify-center hover:border-gwm-charcoal hover:text-gwm-charcoal transition-colors">
+                    <i class="fab fa-linkedin-in text-sm"></i>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=@articleUrl" target="_blank" class="w-9 h-9 rounded-full border border-gwm-gray/50 text-gwm-charcoal/50 flex items-center justify-center hover:border-gwm-charcoal hover:text-gwm-charcoal transition-colors">
+                    <i class="fab fa-facebook-f text-sm"></i>
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=@articleUrl&text=@(Uri.EscapeDataString(Model.Article.Title))" target="_blank" class="w-9 h-9 rounded-full border border-gwm-gray/50 text-gwm-charcoal/50 flex items-center justify-center hover:border-gwm-charcoal hover:text-gwm-charcoal transition-colors">
+                    <i class="fab fa-twitter text-sm"></i>
+                </a>
             </div>
         </div>
     </div>
-</div>
+</article>
+
+<!-- More News -->
+<section class="py-24 bg-gwm-light border-t border-gwm-gray/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-serif text-gwm-dark mb-12">Mais Notícias</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            @foreach (var recent in Model.RecentNews)
+            {
+                <a asp-action="Details" asp-route-id="@recent.Id" class="group block">
+                    <div class="aspect-4/3 overflow-hidden mb-5">
+                        <img src="@recent.ImageUrl" alt="@recent.Title" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500">
+                    </div>
+                    <span class="date-badge block mb-3">@recent.PublishDate.ToString("dd MMM, yyyy")</span>
+                    <h3 class="text-lg font-serif text-gwm-dark group-hover:text-gwm-blue transition-colors line-clamp-2">@recent.Title</h3>
+                </a>
+            }
+        </div>
+    </div>
+</section>

@@ -6,9 +6,47 @@
     --color-gwm-gold: #C6B18A;
     --color-gwm-bronze: #9E8A64;
     --color-gwm-light: #F7F6F3;
+    --color-gwm-electric: #0129FF;
+    --color-gwm-gray: #D6D6D6;
+    --color-gwm-charcoal: #2E2E2E;
 
-    --font-serif: 'Unna', serif;
-    --font-sans: 'Lato', sans-serif;
+    --font-serif: 'Instrument Serif', serif;
+    --font-sans: 'Inter', sans-serif;
 
     --leading-extra-loose: 2.0;
+}
+
+@layer base {
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Instrument Serif', serif;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+    }
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+        transition: color 0.2s ease;
+    }
+}
+
+@layer components {
+    .separator {
+        width: 100%;
+        height: 1px;
+        background-color: var(--color-gwm-gold);
+        opacity: 0.3;
+    }
+
+    .date-badge {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-gwm-bronze);
+    }
 }

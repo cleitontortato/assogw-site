@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
@@ -16,53 +16,45 @@
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Bootstrap Icons CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <style>
-        h1, h2, h3, h4, h5, button, a {
-            font-family: 'Unna', serif;
-        }
-    </style>
-
     @await RenderSectionAsync("Header", required: false)
 
 </head>
-<body class="bg-gwm-light font-sans antialiased text-gray-700 leading-relaxed flex flex-col min-h-screen">
+<body class="bg-gwm-light font-sans antialiased text-gwm-charcoal leading-relaxed flex flex-col min-h-screen">
     <header>
-        <nav class="fixed w-full top-0 z-50 bg-gwm-dark/90 backdrop-blur shadow-lg transition-all duration-300">
+        <nav id="main-nav" class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gwm-gray/50 transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
-                    <div class="flex-shrink-0">
-                        <a asp-area="" asp-controller="Home" asp-action="Index" class="text-white text-2xl font-bold tracking-wider">ASSOGW</a>
+                    <div class="shrink-0">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <img src="~/images/logo.vector.svg" alt="ASSOGW" class="h-10 w-auto" />
+                        </a>
                     </div>
                     <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-4">
-                            <a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Quem Somos</a>
-                            <a asp-area="" asp-controller="News" asp-action="Index" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Notícias</a>
-                            <a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Concessionárias</a>
-                            <a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Parceiros</a>
-                            <a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gray-300 hover:text-gwm-gold px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contato</a>
+                        <div class="ml-10 flex items-baseline space-x-6">
+                            <a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Quem Somos</a>
+                            <a asp-area="" asp-controller="News" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Notícias</a>
+                            <a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Concessionárias</a>
+                            <a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Parceiros</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Contato</a>
                         </div>
                     </div>
                     <div class="-mr-2 flex md:hidden">
-                        <!-- Mobile menu button -->
-                        <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                            <span class="sr-only">Open main menu</span>
+                        <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 text-gwm-charcoal hover:text-gwm-blue focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Abrir menu</span>
                             <i class="fas fa-bars fa-lg"></i>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="hidden md:hidden bg-gwm-dark border-t border-gray-700" id="mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Quem Somos</a>
-                    <a asp-area="" asp-controller="News" asp-action="Index" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Notícias</a>
-                    <a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Concessionárias</a>
-                    <a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
-                    <a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gray-300 hover:text-gwm-gold block px-3 py-2 rounded-md text-base font-medium">Contato</a>
+            <!-- Mobile menu -->
+            <div class="hidden md:hidden bg-white border-t border-gwm-gray/30" id="mobile-menu">
+                <div class="px-4 pt-2 pb-4 space-y-1">
+                    <a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Quem Somos</a>
+                    <a asp-area="" asp-controller="News" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Notícias</a>
+                    <a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Concessionárias</a>
+                    <a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Parceiros</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Contato</a>
                 </div>
             </div>
         </nav>
@@ -74,49 +66,51 @@
         </main>
     </div>
 
-    <footer class="bg-gwm-dark text-white pt-12 pb-8 mt-auto">
+    <footer class="bg-gwm-charcoal text-white pt-16 pb-8 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <!-- Links Rápidos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Institucional -->
                 <div>
-                    <h5 class="text-lg font-bold mb-4 text-gwm-gold">Links Rápidos</h5>
-                    <ul class="space-y-2">
-                        <li><a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gray-400 hover:text-white transition-colors">Quem Somos</a></li>
-                        <li><a asp-area="" asp-controller="News" asp-action="Index" class="text-gray-400 hover:text-white transition-colors">Notícias</a></li>
-                        <li><a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gray-400 hover:text-white transition-colors">Concessionárias</a></li>
-                        <li><a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gray-400 hover:text-white transition-colors">Parceiros</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gray-400 hover:text-white transition-colors">Contato</a></li>
+                    <h5 class="text-xs uppercase tracking-widest text-white/40 mb-6 font-sans font-medium">Institucional</h5>
+                    <ul class="space-y-3">
+                        <li><a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-white/60 hover:text-white text-sm transition-colors">Quem Somos</a></li>
+                        <li><a asp-area="" asp-controller="News" asp-action="Index" class="text-white/60 hover:text-white text-sm transition-colors">Notícias</a></li>
                     </ul>
                 </div>
-                
+
+                <!-- Rede -->
+                <div>
+                    <h5 class="text-xs uppercase tracking-widest text-white/40 mb-6 font-sans font-medium">Rede</h5>
+                    <ul class="space-y-3">
+                        <li><a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-white/60 hover:text-white text-sm transition-colors">Concessionárias</a></li>
+                        <li><a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-white/60 hover:text-white text-sm transition-colors">Parceiros</a></li>
+                    </ul>
+                </div>
+
                 <!-- Contato -->
                 <div>
-                    <h5 class="text-lg font-bold mb-4 text-gwm-gold">Contato</h5>
-                    <p class="mb-2 text-gray-400"><a href="mailto:contato@assogw.com.br" class="hover:text-white transition-colors"><i class="fas fa-envelope mr-2"></i> contato@assogw.com.br</a></p>
-                    <p class="text-gray-400"><a href="tel:11999998888" class="hover:text-white transition-colors"><i class="fas fa-phone-alt mr-2"></i> (11) 99999-8888</a></p>
-                    
-                    <div class="mt-6 flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full border border-gwm-gold text-gwm-gold flex items-center justify-center hover:bg-gwm-gold hover:text-white transition-all duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-gwm-gold text-gwm-gold flex items-center justify-center hover:bg-gwm-gold hover:text-white transition-all duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-gwm-gold text-gwm-gold flex items-center justify-center hover:bg-gwm-gold hover:text-white transition-all duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </div>
+                    <h5 class="text-xs uppercase tracking-widest text-white/40 mb-6 font-sans font-medium">Contato</h5>
+                    <ul class="space-y-3">
+                        <li><a href="mailto:contato@assogw.com.br" class="text-white/60 hover:text-white text-sm transition-colors">contato@assogw.com.br</a></li>
+                        <li><a href="tel:11999998888" class="text-white/60 hover:text-white text-sm transition-colors">(11) 99999-8888</a></li>
+                    </ul>
                 </div>
-                
-                <!-- Sobre -->
+
+                <!-- Social -->
                 <div>
-                    <h5 class="text-lg font-bold mb-4 text-gwm-gold">ASSOGW</h5>
-                    <p class="text-gray-400 leading-relaxed">Associação dos Concessionários GWM do Brasil. Unindo forças para o futuro da mobilidade.</p>
+                    <h5 class="text-xs uppercase tracking-widest text-white/40 mb-6 font-sans font-medium">Social</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-white/60 hover:text-white text-sm transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white text-sm transition-colors">Instagram</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white text-sm transition-colors">Facebook</a></li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
-                &copy; 2026 - ASSOGW - Todos os direitos reservados.
+
+            <!-- Logo + Copyright -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <img src="~/images/logo.vector.svg" alt="ASSOGW" class="h-8 w-auto brightness-0 invert opacity-80" />
+                <p class="text-white/40 text-sm">&copy; 2026 ASSOGW — Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>

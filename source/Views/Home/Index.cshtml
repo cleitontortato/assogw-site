@@ -5,20 +5,20 @@
 }
 
 <!-- Hero Section -->
-<section class="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-gwm-dark via-gwm-blue to-black text-center px-4">
-    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
-    <div class="relative z-10 max-w-4xl mx-auto">
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-            Unindo Forças, <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-gwm-gold to-gwm-bronze">Conduzindo o Futuro</span>
+<section class="pt-32 pb-24 md:pt-40 md:pb-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="date-badge block mb-6">Associação dos Concessionários GWM</span>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-gwm-dark leading-[1.05] mb-8 max-w-4xl">
+            Unindo forças,<br/> conduzindo o futuro
         </h1>
-        <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow">
-            A Associação dos Concessionários GWM representa a força e a união da rede em busca de inovação e excelência no mercado automotivo.
+        <p class="text-lg md:text-xl text-gwm-charcoal/70 max-w-2xl mb-12 leading-relaxed">
+            A ASSOGW representa a força e a união da rede de concessionários GWM em busca de inovação e excelência no mercado automotivo brasileiro.
         </p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-             <a asp-controller="Home" asp-action="QuemSomos" class="px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded hover:bg-white/20 transition-all duration-300 font-semibold uppercase tracking-wide">
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a asp-controller="Home" asp-action="QuemSomos" class="inline-block px-8 py-4 bg-gwm-dark text-white text-sm font-medium tracking-wide hover:bg-gwm-charcoal transition-colors duration-200">
                 Saiba Mais
             </a>
-            <a asp-controller="Home" asp-action="Contact" class="px-8 py-3 bg-gradient-to-r from-gwm-gold to-gwm-bronze text-white rounded shadow-lg hover:scale-105 transition-transform duration-300 font-semibold uppercase tracking-wide">
+            <a asp-controller="Home" asp-action="Contact" class="inline-block px-8 py-4 border border-gwm-charcoal text-gwm-charcoal text-sm font-medium tracking-wide hover:bg-gwm-charcoal hover:text-white transition-colors duration-200">
                 Fale Conosco
             </a>
         </div>
@@ -26,87 +26,82 @@
 </section>
 
 <!-- News Section -->
-<section class="py-20 bg-gray-50">
+<section class="py-24 bg-gwm-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gwm-dark mb-4">Últimas Notícias</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-gwm-gold to-gwm-bronze mx-auto"></div>
+        <div class="flex items-end justify-between mb-16">
+            <h2 class="text-3xl md:text-4xl font-serif text-gwm-dark">Últimas Notícias</h2>
+            <a asp-controller="News" asp-action="Index" class="hidden md:inline-flex items-center text-sm font-medium text-gwm-charcoal hover:text-gwm-blue tracking-wide transition-colors">
+                Ver todas
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @foreach (var item in Model.LatestNews)
             {
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col h-full border border-gray-100 group">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="@item.ImageUrl" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="@item.Title">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-gwm-blue/90 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded shadow-sm">
-                                @item.PublishDate.ToString("dd MMM, yyyy")
-                            </span>
-                        </div>
+                <a asp-controller="News" asp-action="Details" asp-route-id="@item.Id" class="group block">
+                    <div class="aspect-4/3 overflow-hidden mb-5">
+                        <img src="@item.ImageUrl" class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500" alt="@item.Title">
                     </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h5 class="text-xl font-bold text-gwm-dark mb-3 group-hover:text-gwm-blue transition-colors line-clamp-2">@item.Title</h5>
-                        <p class="text-gray-600 mb-6 flex-grow line-clamp-3">@item.Excerpt</p>
-                        <a asp-controller="News" asp-action="Details" asp-route-id="@item.Id" class="inline-flex items-center text-gwm-gold font-bold hover:text-gwm-bronze transition-colors mt-auto group/btn">
-                            Ler Mais 
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+                    <span class="date-badge block mb-3">@item.PublishDate.ToString("dd MMM, yyyy")</span>
+                    <h3 class="text-xl font-serif text-gwm-dark group-hover:text-gwm-blue transition-colors line-clamp-2 mb-2">@item.Title</h3>
+                    <p class="text-sm text-gwm-charcoal/60 line-clamp-2">@item.Excerpt</p>
+                </a>
             }
         </div>
-        
-        <div class="text-center mt-12">
-            <a asp-controller="News" asp-action="Index" class="inline-block px-8 py-3 border-2 border-gwm-gold text-gwm-dark font-bold rounded hover:bg-gwm-gold hover:text-white transition-colors duration-300">
-                Ver Todas as Notícias
+
+        <div class="mt-12 md:hidden text-center">
+            <a asp-controller="News" asp-action="Index" class="inline-flex items-center text-sm font-medium text-gwm-charcoal hover:text-gwm-blue tracking-wide transition-colors">
+                Ver todas as notícias
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
             </a>
         </div>
     </div>
 </section>
 
 <!-- CTA Section -->
-<section class="py-16 bg-white border-t border-gray-100">
+<section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Partners CTA -->
-            <a asp-controller="Parceiros" asp-action="Index" class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 block bg-white border-t-4 border-gwm-gold">
-                <div class="p-10 flex flex-col items-center text-center z-10 relative">
-                    <div class="w-16 h-16 bg-gwm-light rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-handshake text-2xl text-gwm-gold"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold text-gwm-dark mb-3 group-hover:text-gwm-blue transition-colors">Conheça nossos parceiros</h3>
-                    <span class="text-gwm-gold font-bold uppercase tracking-wide text-sm flex items-center mt-4">
-                        Ver Parceiros <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
-                    </span>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gwm-gray/30">
+            <a asp-controller="Parceiros" asp-action="Index" class="group bg-gwm-light hover:bg-white p-12 md:p-16 transition-colors duration-300 block">
+                <h3 class="text-2xl md:text-3xl font-serif text-gwm-dark mb-4">Conheça nossos parceiros</h3>
+                <p class="text-gwm-charcoal/60 mb-8 max-w-md">Empresas que caminham junto com a ASSOGW para fortalecer a rede GWM no Brasil.</p>
+                <span class="inline-flex items-center text-sm font-medium text-gwm-charcoal group-hover:text-gwm-blue tracking-wide transition-colors">
+                    Ver Parceiros
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </span>
             </a>
 
-            <!-- Dealerships CTA -->
-            <a asp-controller="Concessionarias" asp-action="Index" class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 block bg-white border-t-4 border-gwm-gold">
-                 <div class="p-10 flex flex-col items-center text-center z-10 relative">
-                    <div class="w-16 h-16 bg-gwm-light rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-store text-2xl text-gwm-gold"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold text-gwm-dark mb-3 group-hover:text-gwm-blue transition-colors">Nossas concessionárias associadas</h3>
-                    <span class="text-gwm-gold font-bold uppercase tracking-wide text-sm flex items-center mt-4">
-                        Encontrar Concessionária <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
-                    </span>
-                </div>
+            <a asp-controller="Concessionarias" asp-action="Index" class="group bg-gwm-light hover:bg-white p-12 md:p-16 transition-colors duration-300 block">
+                <h3 class="text-2xl md:text-3xl font-serif text-gwm-dark mb-4">Nossas concessionárias</h3>
+                <p class="text-gwm-charcoal/60 mb-8 max-w-md">Encontre a concessionária GWM mais próxima de você em todo o território nacional.</p>
+                <span class="inline-flex items-center text-sm font-medium text-gwm-charcoal group-hover:text-gwm-blue tracking-wide transition-colors">
+                    Encontrar Concessionária
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- Partners Section -->
-<section class="py-12 bg-white border-t border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+1" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 1">
-        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+2" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 2">
-        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+3" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 3">
-        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+4" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 4">
-        <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+5" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 5">
+<!-- Partners Strip -->
+<section class="py-16 bg-white border-t border-gwm-gray/30">
+    <div class="max-w-7xl mx-auto px-4">
+        <p class="text-xs uppercase tracking-widest text-gwm-charcoal/40 text-center mb-10 font-medium">Nossos Parceiros</p>
+        <div class="flex flex-wrap justify-center items-center gap-12 opacity-40 grayscale">
+            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+1" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 1">
+            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+2" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 2">
+            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+3" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 3">
+            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+4" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 4">
+            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+5" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 5">
+        </div>
     </div>
 </section>
