@@ -129,16 +129,16 @@
     border-bottom-color: transparent;
 }
 
-#main-nav.hero-nav a,
-#main-nav.hero-nav button {
+#main-nav.hero-nav > :not(#mobile-menu) a,
+#main-nav.hero-nav > :not(#mobile-menu) button {
     color: rgba(255, 255, 255, 0.85);
 }
 
-#main-nav.hero-nav a:hover {
+#main-nav.hero-nav > :not(#mobile-menu) a:hover {
     color: white;
 }
 
-#main-nav.hero-nav img {
+#main-nav.hero-nav > :not(#mobile-menu) img {
     filter: brightness(0) invert(1);
 }
 
