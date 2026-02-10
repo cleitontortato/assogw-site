@@ -247,14 +247,14 @@
                     <h3 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 font-sans font-medium mb-8">Card Variations</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <!-- Borderless News Card -->
-                        <div>
+                        <div class="group">
                             <div class="aspect-4/3 overflow-hidden mb-5 bg-gwm-gray/20">
-                                <div class="flex items-center justify-center h-full text-gwm-charcoal/20"><i class="fas fa-image text-3xl"></i></div>
+                                <div class="flex items-center justify-center h-full text-gwm-charcoal/20 group-hover:scale-[1.03] transition-transform duration-500"><i class="fas fa-image text-3xl"></i></div>
                             </div>
                             <span class="date-badge block mb-3">16 Jan, 2026</span>
-                            <h3 class="text-xl font-serif text-gwm-dark mb-2">Borderless News Card</h3>
-                            <p class="text-sm text-gwm-charcoal/60 line-clamp-2">Image + text stacked. No border, no shadow. Whole card is a link.</p>
-                            <code class="text-xs text-gwm-charcoal/30 font-mono block mt-3">Borderless pattern</code>
+                            <h3 class="text-3xl font-serif text-gwm-dark group-hover:text-gwm-blue transition-colors line-clamp-2 mb-2">Borderless News Card</h3>
+                            <p class="text-sm text-gwm-charcoal/60 line-clamp-2">Image + text stacked. No border, no shadow. Whole card is a link with hover effects.</p>
+                            <code class="text-xs text-gwm-charcoal/30 font-mono block mt-3">text-3xl · group-hover:text-gwm-blue · scale on hover</code>
                         </div>
 
                         <!-- Hairline Grid Cell -->
@@ -265,14 +265,81 @@
                         </div>
 
                         <!-- Partner Card -->
-                        <div class="bg-white border border-gwm-gray/40 p-8 flex flex-col items-center justify-center text-center">
-                            <div class="w-24 h-24 flex items-center justify-center mb-6 text-gwm-charcoal/20">
+                        <div class="bg-white p-8 flex flex-col items-center justify-center text-center group hover:bg-white transition-colors">
+                            <div class="w-24 h-24 flex items-center justify-center mb-6 text-gwm-charcoal/20 grayscale group-hover:grayscale-0 transition-all duration-300">
                                 <i class="fas fa-image text-3xl"></i>
                             </div>
-                            <h3 class="text-lg font-serif text-gwm-dark">Partner Card</h3>
-                            <code class="text-xs text-gwm-charcoal/30 font-mono block mt-4">border border-gwm-gray/40</code>
+                            <h3 class="text-lg font-sans font-medium text-gwm-dark">Partner Card</h3>
+                            <p class="text-xs text-gwm-charcoal/40 mt-1">Category</p>
+                            <code class="text-xs text-gwm-charcoal/30 font-mono block mt-4">font-sans · grayscale hover · hairline grid</code>
                         </div>
                     </div>
+                </div>
+
+                <!-- Hero CTA Button -->
+                <div class="bg-white p-8 border border-gwm-gray/30">
+                    <h3 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 font-sans font-medium mb-8">Hero CTA Buttons</h3>
+                    <div class="flex flex-wrap gap-4 items-center mb-6">
+                        <button class="px-8 py-4 bg-white text-gwm-dark text-sm font-medium tracking-wide hover:bg-gwm-gold hover:text-white transition-colors duration-300">
+                            Hero CTA (Light)
+                        </button>
+                        <div class="bg-gwm-dark p-4 inline-flex gap-4">
+                            <button class="px-8 py-4 border border-white/30 text-white text-sm font-medium tracking-wide hover:bg-white hover:text-gwm-dark transition-colors duration-300">
+                                Hero CTA (Dark BG)
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gwm-charcoal/30 mt-4">Used in hero carousel slides. White bg with gold hover, or ghost variant on dark backgrounds.</p>
+                </div>
+
+                <!-- Pull Quote -->
+                <div class="bg-white p-8 border border-gwm-gray/30">
+                    <h3 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 font-sans font-medium mb-8">Pull Quote</h3>
+                    <blockquote class="py-10 border-t border-b border-gwm-gray/30">
+                        <p class="text-2xl md:text-3xl font-serif text-gwm-dark leading-snug mb-6">
+                            "A união da rede de concessionários é o que nos permite oferecer uma experiência verdadeiramente premium."
+                        </p>
+                        <cite class="not-italic text-xs font-sans font-medium uppercase tracking-widest text-gwm-bronze">
+                            Autor da Citação
+                        </cite>
+                    </blockquote>
+                    <code class="text-xs text-gwm-charcoal/30 font-mono block mt-4">blockquote · border-t border-b · font-serif · cite .date-badge style</code>
+                </div>
+
+                <!-- Scroll Reveal Animation -->
+                <div class="bg-white p-8 border border-gwm-gray/30">
+                    <h3 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 font-sans font-medium mb-8">Scroll Reveal Animation</h3>
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="reveal bg-gwm-light p-6 text-center" style="--reveal-delay: 0s">
+                            <span class="text-sm text-gwm-charcoal/60 font-sans">Card 1</span>
+                            <p class="text-xs text-gwm-charcoal/30 mt-1">0s delay</p>
+                        </div>
+                        <div class="reveal bg-gwm-light p-6 text-center" style="--reveal-delay: 0.12s">
+                            <span class="text-sm text-gwm-charcoal/60 font-sans">Card 2</span>
+                            <p class="text-xs text-gwm-charcoal/30 mt-1">0.12s delay</p>
+                        </div>
+                        <div class="reveal bg-gwm-light p-6 text-center" style="--reveal-delay: 0.24s">
+                            <span class="text-sm text-gwm-charcoal/60 font-sans">Card 3</span>
+                            <p class="text-xs text-gwm-charcoal/30 mt-1">0.24s delay</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-xs text-gwm-charcoal/30 font-mono">
+                        <p>.reveal → opacity: 0, translateY(24px)</p>
+                        <p>.reveal.is-visible → opacity: 1, translateY(0)</p>
+                        <p>--reveal-delay: stagger via CSS custom property</p>
+                        <p>IntersectionObserver (threshold: 0.15, unobserve after trigger)</p>
+                    </div>
+                    <p class="text-xs text-gwm-charcoal/40 mt-4">Placed outside <code class="font-mono">@@layer</code> to avoid Tailwind v4 utility specificity override.</p>
+                </div>
+
+                <!-- Reading Progress Bar -->
+                <div class="bg-white p-8 border border-gwm-gray/30">
+                    <h3 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 font-sans font-medium mb-8">Reading Progress Bar</h3>
+                    <div class="relative h-[2px] bg-gwm-gray/20 mb-4">
+                        <div class="absolute top-0 left-0 h-full bg-gwm-gold" style="width: 65%"></div>
+                    </div>
+                    <p class="text-xs text-gwm-charcoal/30 mb-4">Fixed at top of viewport on article detail pages. Tracks scroll position relative to article body.</p>
+                    <code class="text-xs text-gwm-charcoal/30 font-mono block">fixed top-0 left-0 z-[60] h-[2px] bg-gwm-gold</code>
                 </div>
 
                 <!-- Dividers -->

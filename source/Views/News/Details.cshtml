@@ -19,61 +19,183 @@
     <meta property="twitter:image" content="@Model.Article.ImageUrl" />
 }
 
-<article class="pt-32 pb-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Article Header -->
-        <header class="mb-12">
-            <span class="date-badge block mb-4">
+<!-- Reading Progress Bar -->
+<div id="reading-progress" class="fixed top-0 left-0 z-[60] h-[2px] bg-gwm-gold transition-none" style="width: 0%;"></div>
+
+<!-- Article Hero -->
+<section class="relative -mt-20 h-[70vh] min-h-[500px] max-h-[750px] overflow-hidden bg-gwm-dark">
+    <div class="absolute inset-0">
+        <img src="@Model.Article.ImageUrl" alt="@Model.Article.Title" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-gwm-dark via-gwm-dark/40 to-gwm-dark/20"></div>
+    </div>
+    <div class="relative h-full flex items-end pb-16 md:pb-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <a asp-controller="News" asp-action="Index" class="inline-flex items-center gap-2 text-white/50 hover:text-white text-xs font-sans font-medium uppercase tracking-widest mb-6 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Notícias
+            </a>
+            <span class="date-badge block mb-4 text-gwm-gold">
                 <time datetime="@Model.Article.PublishDate.ToString("yyyy-MM-dd")">
                     @Model.Article.PublishDate.ToString("dd 'de' MMMM 'de' yyyy")
                 </time>
             </span>
-            <h1 class="text-3xl md:text-5xl font-serif text-gwm-dark leading-tight mb-6">@Model.Article.Title</h1>
-            <p class="text-sm text-gwm-charcoal/50">
-                Por <span class="text-gwm-charcoal">@Model.Article.Author</span>
-            </p>
-        </header>
-
-        <!-- Featured Image -->
-        <div class="mb-12 overflow-hidden">
-            <img src="@Model.Article.ImageUrl" class="w-full h-auto object-cover" alt="@Model.Article.Title">
-        </div>
-
-        <!-- Article Content -->
-        <div class="prose prose-lg max-w-none text-gwm-charcoal/80 leading-relaxed">
-            <p class="text-xl text-gwm-charcoal/70 mb-8 border-l-2 border-gwm-gray pl-6 italic">
-                @Model.Article.Excerpt
-            </p>
-            <p class="mb-6">
-                A inovação contínua é um dos pilares da GWM, e o novo lançamento Híbrido é a prova viva desse compromisso.
-                Com uma combinação de motor elétrico e a combustão, o veículo oferece uma experiência de condução
-                silenciosa e eficiente, sem comprometer a potência e o desempenho que os clientes esperam.
-            </p>
-            <p class="mb-6">
-                A tecnologia embarcada inclui um sistema de infotainment de última geração, assistentes de condução
-                avançados e um acabamento interno que rivaliza com marcas de luxo consolidadas. A ASSOGW,
-                representando a rede de concessionários, está otimista de que este modelo será um marco nas vendas
-                e na percepção da marca no Brasil.
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.1] mb-6 max-w-3xl">
+                @Model.Article.Title
+            </h1>
+            <p class="text-sm text-white/40 font-sans">
+                Por <span class="text-white/70">@Model.Article.Author</span>
             </p>
         </div>
+    </div>
+</section>
 
-        <!-- Share Buttons -->
-        <div class="mt-16 pt-8 border-t border-gwm-gray/30">
-            <h5 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 mb-5 font-sans font-medium">Compartilhe</h5>
-            <div class="flex space-x-3">
-                <a href="https://wa.me/?text=@(Uri.EscapeDataString(Model.Article.Title + " " + articleUrl))" target="_blank" class="w-9 h-9 rounded-full border border-gwm-gray/50 text-gwm-charcoal/50 flex items-center justify-center hover:border-gwm-charcoal hover:text-gwm-charcoal transition-colors">
-                    <i class="fab fa-whatsapp text-sm"></i>
-                </a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url=@articleUrl&title=@(Uri.EscapeDataString(Model.Article.Title))" target="_blank" class="w-9 h-9 rounded-full border border-gwm-gray/50 text-gwm-charcoal/50 flex items-center justify-center hover:border-gwm-charcoal hover:text-gwm-charcoal transition-colors">
-                    <i class="fab fa-linkedin-in text-sm"></i>
-                </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=@articleUrl" target="_blank" class="w-9 h-9 rounded-full border border-gwm-gray/50 text-gwm-charcoal/50 flex items-center justify-center hover:border-gwm-charcoal hover:text-gwm-charcoal transition-colors">
-                    <i class="fab fa-facebook-f text-sm"></i>
-                </a>
-                <a href="https://twitter.com/intent/tweet?url=@articleUrl&text=@(Uri.EscapeDataString(Model.Article.Title))" target="_blank" class="w-9 h-9 rounded-full border border-gwm-gray/50 text-gwm-charcoal/50 flex items-center justify-center hover:border-gwm-charcoal hover:text-gwm-charcoal transition-colors">
-                    <i class="fab fa-twitter text-sm"></i>
-                </a>
+<!-- Article Body -->
+<article id="article-body" class="bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+
+        <!-- Lead / Excerpt -->
+        <p class="text-xl md:text-2xl font-serif text-gwm-dark leading-relaxed mb-12">
+            @Model.Article.Excerpt
+        </p>
+
+        <div class="w-12 h-px bg-gwm-gold mb-12"></div>
+
+        <!-- Body Content -->
+        <div class="space-y-6 text-base md:text-lg text-gwm-charcoal/80 leading-[1.85] font-sans">
+            <p>
+                A indústria automotiva brasileira atravessa um momento de transformação sem precedentes. Com a chegada de novas
+                tecnologias de eletrificação e a crescente demanda por veículos mais eficientes, o mercado nacional se consolida
+                como um dos mais dinâmicos da América Latina. Nesse cenário, a GWM tem se destacado como uma das marcas que
+                mais cresce no país, combinando inovação tecnológica com um posicionamento de preço competitivo.
+            </p>
+
+            <p>
+                Os números do último trimestre confirmam essa tendência. O Haval H6, carro-chefe da marca, manteve sua
+                posição de liderança no segmento de SUVs médios, superando concorrentes estabelecidos há décadas no mercado
+                brasileiro. A rede de concessionários, representada pela ASSOGW, tem sido peça fundamental nesse crescimento,
+                garantindo uma experiência de compra e pós-venda à altura da qualidade dos produtos.
+            </p>
+
+            <!-- Subtitle -->
+            <h2 class="text-2xl md:text-3xl font-serif text-gwm-dark pt-8 pb-2">
+                O papel da tecnologia na nova era automotiva
+            </h2>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, vulputate magna in,
+                ornare mauris. Vivamus dignissim lacus vitae sapien interdum, nec fermentum nisi venenatis. Cras ac metus
+                sit amet leo tincidunt placerat vel at nulla. Fusce euismod libero at risus congue, id pharetra velit
+                ullamcorper. Integer faucibus erat vel nisl dignissim, vel congue sapien hendrerit.
+            </p>
+
+            <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+                dolores eos qui ratione voluptatem sequi nesciunt.
+            </p>
+        </div>
+
+        <!-- Pull Quote -->
+        <blockquote class="my-16 py-10 border-t border-b border-gwm-gray/30">
+            <p class="text-2xl md:text-3xl font-serif text-gwm-dark leading-snug mb-6">
+                "A união da rede de concessionários é o que nos permite oferecer uma experiência verdadeiramente premium em cada ponto de contato com o cliente."
+            </p>
+            <cite class="not-italic text-xs font-sans font-medium uppercase tracking-widest text-gwm-bronze">
+                Presidente da ASSOGW
+            </cite>
+        </blockquote>
+
+        <!-- More body -->
+        <div class="space-y-6 text-base md:text-lg text-gwm-charcoal/80 leading-[1.85] font-sans">
+            <h2 class="text-2xl md:text-3xl font-serif text-gwm-dark pt-4 pb-2">
+                Expansão da rede e novos investimentos
+            </h2>
+
+            <p>
+                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+                ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
+                molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. At vero eos et accusamus
+                et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.
+            </p>
+
+            <!-- Inline Image -->
+            <figure class="my-12">
+                <div class="overflow-hidden">
+                    <img src="https://placehold.co/1200x600/2C3E50/4A6A8A?text=Interior+do+Haval+H6&font=playfair-display"
+                         alt="Interior do Haval H6" class="w-full h-auto">
+                </div>
+                <figcaption class="mt-4 text-xs font-sans text-gwm-charcoal/40 tracking-wide">
+                    Interior do novo Haval H6 com acabamento premium e tecnologia de ponta. Foto: GWM Brasil
+                </figcaption>
+            </figure>
+
+            <p>
+                Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates
+                repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+                reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Nam libero
+                tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-serif text-gwm-dark pt-8 pb-2">
+                Perspectivas para o segundo semestre
+            </h2>
+
+            <p>
+                Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
+                vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus
+                magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+            </p>
+
+            <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ut facilisis in, egestas eget
+                quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel
+                scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada
+                magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+            </p>
+
+            <p>
+                Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus,
+                nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem
+                lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus
+                sit amet fermentum.
+            </p>
+        </div>
+
+        <!-- Tags / Meta -->
+        <div class="mt-16 pt-8 border-t border-gwm-gray/30 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+            <!-- Share -->
+            <div>
+                <h5 class="text-xs uppercase tracking-widest text-gwm-charcoal/30 mb-4 font-sans font-medium">Compartilhe</h5>
+                <div class="flex items-center gap-1">
+                    <a href="https://wa.me/?text=@(Uri.EscapeDataString(Model.Article.Title + " " + articleUrl))" target="_blank"
+                       class="w-10 h-10 flex items-center justify-center text-gwm-charcoal/30 hover:text-gwm-charcoal border border-gwm-gray/30 hover:border-gwm-charcoal/30 transition-all duration-200">
+                        <i class="fab fa-whatsapp text-sm"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=@articleUrl&title=@(Uri.EscapeDataString(Model.Article.Title))" target="_blank"
+                       class="w-10 h-10 flex items-center justify-center text-gwm-charcoal/30 hover:text-gwm-charcoal border border-gwm-gray/30 hover:border-gwm-charcoal/30 transition-all duration-200">
+                        <i class="fab fa-linkedin-in text-sm"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=@articleUrl" target="_blank"
+                       class="w-10 h-10 flex items-center justify-center text-gwm-charcoal/30 hover:text-gwm-charcoal border border-gwm-gray/30 hover:border-gwm-charcoal/30 transition-all duration-200">
+                        <i class="fab fa-facebook-f text-sm"></i>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=@articleUrl&text=@(Uri.EscapeDataString(Model.Article.Title))" target="_blank"
+                       class="w-10 h-10 flex items-center justify-center text-gwm-charcoal/30 hover:text-gwm-charcoal border border-gwm-gray/30 hover:border-gwm-charcoal/30 transition-all duration-200">
+                        <i class="fab fa-twitter text-sm"></i>
+                    </a>
+                </div>
             </div>
+
+            <!-- Back link -->
+            <a asp-controller="News" asp-action="Index" class="inline-flex items-center gap-2 text-sm font-sans font-medium text-gwm-charcoal/40 hover:text-gwm-blue tracking-wide transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Voltar para notícias
+            </a>
         </div>
     </div>
 </article>
@@ -81,18 +203,70 @@
 <!-- More News -->
 <section class="py-24 bg-gwm-light border-t border-gwm-gray/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-serif text-gwm-dark mb-12">Mais Notícias</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="flex items-end justify-between mb-16">
+            <h2 class="text-3xl md:text-4xl font-serif text-gwm-dark">Mais Notícias</h2>
+            <a asp-controller="News" asp-action="Index" class="hidden md:inline-flex items-center text-sm font-medium text-gwm-charcoal hover:text-gwm-blue tracking-wide transition-colors">
+                Ver todas
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-gwm-gray/30">
+            @{ var relatedIdx = 0; }
             @foreach (var recent in Model.RecentNews)
             {
-                <a asp-action="Details" asp-route-id="@recent.Id" class="group block">
-                    <div class="aspect-4/3 overflow-hidden mb-5">
+                <a asp-action="Details" asp-route-id="@recent.Id" class="reveal group block bg-gwm-light hover:bg-white transition-colors duration-300" style="--reveal-delay: @(relatedIdx * 0.12)s">
+                    <div class="aspect-4/3 overflow-hidden">
                         <img src="@recent.ImageUrl" alt="@recent.Title" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500">
                     </div>
-                    <span class="date-badge block mb-3">@recent.PublishDate.ToString("dd MMM, yyyy")</span>
-                    <h3 class="text-lg font-serif text-gwm-dark group-hover:text-gwm-blue transition-colors line-clamp-2">@recent.Title</h3>
+                    <div class="p-6 md:p-8">
+                        <span class="date-badge block mb-3">@recent.PublishDate.ToString("dd MMM, yyyy")</span>
+                        <h3 class="text-3xl font-serif text-gwm-dark group-hover:text-gwm-blue transition-colors line-clamp-2 mb-3">@recent.Title</h3>
+                        <span class="inline-flex items-center gap-1 text-xs font-sans font-medium text-gwm-charcoal/0 group-hover:text-gwm-charcoal/40 tracking-wide transition-colors duration-300">
+                            Ler artigo
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </span>
+                    </div>
                 </a>
+                relatedIdx++;
             }
         </div>
     </div>
 </section>
+
+@section Scripts {
+    <script>
+        // Reading progress bar
+        (function () {
+            var progress = document.getElementById('reading-progress');
+            var article = document.getElementById('article-body');
+            if (!progress || !article) return;
+
+            var ticking = false;
+
+            function updateProgress() {
+                var articleRect = article.getBoundingClientRect();
+                var articleTop = articleRect.top + window.scrollY;
+                var articleHeight = article.offsetHeight;
+                var windowHeight = window.innerHeight;
+                var scrolled = window.scrollY - articleTop + windowHeight;
+                var total = articleHeight + windowHeight;
+                var pct = Math.min(Math.max((scrolled / total) * 100, 0), 100);
+                progress.style.width = pct + '%';
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    requestAnimationFrame(updateProgress);
+                    ticking = true;
+                }
+            });
+
+            updateProgress();
+        })();
+    </script>
+}

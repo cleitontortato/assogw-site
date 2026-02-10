@@ -22,16 +22,21 @@
     @if (goldPartners.Any())
     {
         <section>
-            <h2 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 mb-8 font-sans font-medium">Patrocinadores Gold</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-8 h-px bg-gwm-gold"></div>
+                <h2 class="text-xs uppercase tracking-widest text-gwm-gold font-sans font-medium">Gold</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-gwm-gray/30">
                 @foreach (var partner in goldPartners)
                 {
-                    <div class="bg-white border border-gwm-gray/40 p-8 flex flex-col items-center justify-center text-center">
-                        <div class="w-24 h-24 flex items-center justify-center mb-6 p-4">
-                            <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain" />
+                    <a href="@partner.Url" target="_blank" rel="noopener" class="group relative bg-white p-10 flex flex-col items-center justify-center text-center transition-colors duration-300 hover:bg-gwm-light">
+                        <div class="absolute top-0 left-0 right-0 h-px bg-gwm-gold/0 group-hover:bg-gwm-gold transition-all duration-300"></div>
+                        <div class="w-28 h-28 flex items-center justify-center mb-6">
+                            <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
                         </div>
-                        <h3 class="text-lg font-serif text-gwm-dark">@partner.Name</h3>
-                    </div>
+                        <h3 class="text-sm font-sans font-medium tracking-wide text-gwm-dark">@partner.Name</h3>
+                        <span class="mt-3 text-xs font-sans text-gwm-charcoal/0 group-hover:text-gwm-charcoal/40 tracking-wide transition-colors duration-300">Visitar site &rarr;</span>
+                    </a>
                 }
             </div>
         </section>
@@ -41,16 +46,20 @@
     @if (silverPartners.Any())
     {
         <section>
-            <h2 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 mb-8 font-sans font-medium">Patrocinadores Silver</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-8 h-px bg-gwm-gray"></div>
+                <h2 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 font-sans font-medium">Silver</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-gwm-gray/30">
                 @foreach (var partner in silverPartners)
                 {
-                    <div class="bg-white border border-gwm-gray/30 p-6 flex flex-col items-center justify-center text-center">
-                        <div class="w-20 h-20 flex items-center justify-center mb-4 p-3">
-                            <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain" />
+                    <a href="@partner.Url" target="_blank" rel="noopener" class="group relative bg-white p-8 flex flex-col items-center justify-center text-center transition-colors duration-300 hover:bg-gwm-light">
+                        <div class="absolute top-0 left-0 right-0 h-px bg-gwm-gray/0 group-hover:bg-gwm-gray transition-all duration-300"></div>
+                        <div class="w-20 h-20 flex items-center justify-center mb-5">
+                            <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
                         </div>
-                        <h3 class="text-base font-serif text-gwm-dark">@partner.Name</h3>
-                    </div>
+                        <h3 class="text-sm font-sans font-medium tracking-wide text-gwm-dark">@partner.Name</h3>
+                    </a>
                 }
             </div>
         </section>
@@ -60,16 +69,19 @@
     @if (bronzePartners.Any())
     {
         <section>
-            <h2 class="text-xs uppercase tracking-widest text-gwm-charcoal/40 mb-8 font-sans font-medium">Patrocinadores Bronze</h2>
-            <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-8 h-px bg-gwm-bronze/40"></div>
+                <h2 class="text-xs uppercase tracking-widest text-gwm-charcoal/30 font-sans font-medium">Bronze</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-gwm-gray/20">
                 @foreach (var partner in bronzePartners)
                 {
-                    <div class="bg-white border border-gwm-gray/20 p-4 flex flex-col items-center justify-center text-center">
-                        <div class="w-14 h-14 flex items-center justify-center mb-3 p-2">
-                            <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain" />
+                    <a href="@partner.Url" target="_blank" rel="noopener" class="group bg-white p-5 flex flex-col items-center justify-center text-center transition-colors duration-300 hover:bg-gwm-light">
+                        <div class="w-14 h-14 flex items-center justify-center mb-3">
+                            <img src="@partner.LogoUrl" alt="@partner.Name" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
                         </div>
-                        <h3 class="text-sm font-serif text-gwm-charcoal/70">@partner.Name</h3>
-                    </div>
+                        <h3 class="text-xs font-sans font-medium tracking-wide text-gwm-charcoal/60">@partner.Name</h3>
+                    </a>
                 }
             </div>
         </section>

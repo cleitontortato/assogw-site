@@ -4,23 +4,125 @@
     ViewData["Title"] = "Home";
 }
 
-<!-- Hero Section -->
-<section class="pt-32 pb-24 md:pt-40 md:pb-32 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <span class="date-badge block mb-6">Associação dos Concessionários GWM</span>
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-gwm-dark leading-[1.05] mb-8 max-w-4xl">
-            Unindo forças,<br/> conduzindo o futuro
-        </h1>
-        <p class="text-lg md:text-xl text-gwm-charcoal/70 max-w-2xl mb-12 leading-relaxed">
-            A ASSOGW representa a força e a união da rede de concessionários GWM em busca de inovação e excelência no mercado automotivo brasileiro.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-            <a asp-controller="Home" asp-action="QuemSomos" class="inline-block px-8 py-4 bg-gwm-dark text-white text-sm font-medium tracking-wide hover:bg-gwm-charcoal transition-colors duration-200">
-                Saiba Mais
-            </a>
-            <a asp-controller="Home" asp-action="Contact" class="inline-block px-8 py-4 border border-gwm-charcoal text-gwm-charcoal text-sm font-medium tracking-wide hover:bg-gwm-charcoal hover:text-white transition-colors duration-200">
-                Fale Conosco
-            </a>
+<!-- Hero Carousel -->
+<section id="hero-carousel" class="relative -mt-20 h-screen min-h-[600px] max-h-[900px] overflow-hidden bg-gwm-dark">
+    <!-- Slides Container -->
+    <div class="hero-slides relative h-full w-full">
+        <!-- Slide 1 -->
+        <div class="hero-slide absolute inset-0" data-slide="0">
+            <div class="absolute inset-0">
+                <img src="https://placehold.co/1920x900/2C3E50/4A6A8A?text=HAVAL+H6&font=playfair-display"
+                     alt="GWM Haval H6 em movimento"
+                     class="w-full h-full object-cover hero-slide-img">
+                <div class="absolute inset-0 bg-gradient-to-r from-gwm-dark/90 via-gwm-dark/50 to-transparent"></div>
+            </div>
+            <div class="relative h-full flex items-end pb-24 md:pb-32">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <span class="hero-eyebrow date-badge block mb-5 text-gwm-gold">Notícias</span>
+                    <h1 class="hero-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.05] mb-6 max-w-3xl">
+                        GWM cresce 70% em janeiro e mantém liderança
+                    </h1>
+                    <p class="hero-body text-base md:text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
+                        A marca alcança novo recorde de vendas no Brasil com o Haval H6 no topo do segmento de SUVs.
+                    </p>
+                    <a href="#" class="hero-cta group inline-flex items-center gap-3 px-7 py-4 bg-white text-gwm-dark text-sm font-medium tracking-wide hover:bg-gwm-gold hover:text-gwm-dark transition-all duration-300">
+                        Leia mais
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide absolute inset-0" data-slide="1">
+            <div class="absolute inset-0">
+                <img src="https://placehold.co/1920x900/1B2A4A/3D5A8A?text=ORA+03+ELECTRIC&font=playfair-display"
+                     alt="GWM ORA 03 elétrico"
+                     class="w-full h-full object-cover hero-slide-img">
+                <div class="absolute inset-0 bg-gradient-to-r from-gwm-dark/90 via-gwm-dark/50 to-transparent"></div>
+            </div>
+            <div class="relative h-full flex items-end pb-24 md:pb-32">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <span class="hero-eyebrow date-badge block mb-5 text-gwm-gold">Elétricos</span>
+                    <h1 class="hero-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.05] mb-6 max-w-3xl">
+                        ORA 03: o futuro elétrico já chegou
+                    </h1>
+                    <p class="hero-body text-base md:text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
+                        Design europeu, tecnologia chinesa e a melhor autonomia da categoria no mercado brasileiro.
+                    </p>
+                    <a href="#" class="hero-cta group inline-flex items-center gap-3 px-7 py-4 bg-white text-gwm-dark text-sm font-medium tracking-wide hover:bg-gwm-gold hover:text-gwm-dark transition-all duration-300">
+                        Conheça o modelo
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide absolute inset-0" data-slide="2">
+            <div class="absolute inset-0">
+                <img src="https://placehold.co/1920x900/3A2A1A/8A7A5A?text=REDE+ASSOGW&font=playfair-display"
+                     alt="Rede de concessionárias GWM"
+                     class="w-full h-full object-cover hero-slide-img">
+                <div class="absolute inset-0 bg-gradient-to-r from-gwm-dark/90 via-gwm-dark/50 to-transparent"></div>
+            </div>
+            <div class="relative h-full flex items-end pb-24 md:pb-32">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <span class="hero-eyebrow date-badge block mb-5 text-gwm-gold">Rede ASSOGW</span>
+                    <h1 class="hero-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.05] mb-6 max-w-3xl">
+                        Unindo forças, conduzindo o futuro
+                    </h1>
+                    <p class="hero-body text-base md:text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
+                        A maior rede de concessionários GWM do Brasil. Excelência em cada experiência.
+                    </p>
+                    <a asp-controller="Home" asp-action="QuemSomos" class="hero-cta group inline-flex items-center gap-3 px-7 py-4 bg-white text-gwm-dark text-sm font-medium tracking-wide hover:bg-gwm-gold hover:text-gwm-dark transition-all duration-300">
+                        Saiba mais
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button id="hero-prev" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/50 hover:text-white border border-white/20 hover:border-white/50 transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10" aria-label="Slide anterior">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+        </svg>
+    </button>
+    <button id="hero-next" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-white/50 hover:text-white border border-white/20 hover:border-white/50 transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10" aria-label="Próximo slide">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+        </svg>
+    </button>
+
+    <!-- Dot Indicators + Slide Counter -->
+    <div class="absolute bottom-8 left-4 sm:left-6 lg:left-8 z-10 flex items-center gap-6">
+        <div class="max-w-7xl flex items-center gap-6">
+            <!-- Progress Dots -->
+            <div class="flex items-center gap-2">
+                <button class="hero-dot w-8 h-[2px] bg-white transition-all duration-500" data-dot="0" aria-label="Ir para slide 1"></button>
+                <button class="hero-dot w-8 h-[2px] bg-white/30 transition-all duration-500" data-dot="1" aria-label="Ir para slide 2"></button>
+                <button class="hero-dot w-8 h-[2px] bg-white/30 transition-all duration-500" data-dot="2" aria-label="Ir para slide 3"></button>
+            </div>
+            <!-- Counter -->
+            <span class="text-xs font-sans font-medium tracking-widest text-white/40">
+                <span id="hero-current">01</span> / <span id="hero-total">03</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 right-4 sm:right-6 lg:right-8 z-10 flex flex-col items-center gap-2">
+        <span class="text-[10px] uppercase tracking-[0.2em] text-white/30 font-medium">Scroll</span>
+        <div class="w-px h-8 bg-white/20 relative overflow-hidden">
+            <div class="absolute inset-x-0 top-0 h-full bg-white/60 animate-scroll-hint"></div>
         </div>
     </div>
 </section>
@@ -39,16 +141,18 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            @{ var homeNewsIdx = 0; }
             @foreach (var item in Model.LatestNews)
             {
-                <a asp-controller="News" asp-action="Details" asp-route-id="@item.Id" class="group block">
+                <a asp-controller="News" asp-action="Details" asp-route-id="@item.Id" class="reveal group block" style="--reveal-delay: @(homeNewsIdx * 0.12)s">
                     <div class="aspect-4/3 overflow-hidden mb-5">
                         <img src="@item.ImageUrl" class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500" alt="@item.Title">
                     </div>
                     <span class="date-badge block mb-3">@item.PublishDate.ToString("dd MMM, yyyy")</span>
-                    <h3 class="text-xl font-serif text-gwm-dark group-hover:text-gwm-blue transition-colors line-clamp-2 mb-2">@item.Title</h3>
+                    <h3 class="text-3xl font-serif text-gwm-dark group-hover:text-gwm-blue transition-colors line-clamp-2 mb-2">@item.Title</h3>
                     <p class="text-sm text-gwm-charcoal/60 line-clamp-2">@item.Excerpt</p>
                 </a>
+                homeNewsIdx++;
             }
         </div>
 
@@ -97,11 +201,11 @@
     <div class="max-w-7xl mx-auto px-4">
         <p class="text-xs uppercase tracking-widest text-gwm-charcoal/40 text-center mb-10 font-medium">Nossos Parceiros</p>
         <div class="flex flex-wrap justify-center items-center gap-12 opacity-40 grayscale">
-            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+1" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 1">
-            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+2" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 2">
-            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+3" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 3">
-            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+4" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 4">
-            <img src="https://via.placeholder.com/150x40/FFFFFF/000000?text=Partner+5" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 5">
+            <img src="https://placehold.co/150x40/F7F6F3/9E8A64?text=Partner+1&font=inter" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 1">
+            <img src="https://placehold.co/150x40/F7F6F3/9E8A64?text=Partner+2&font=inter" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 2">
+            <img src="https://placehold.co/150x40/F7F6F3/9E8A64?text=Partner+3&font=inter" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 3">
+            <img src="https://placehold.co/150x40/F7F6F3/9E8A64?text=Partner+4&font=inter" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 4">
+            <img src="https://placehold.co/150x40/F7F6F3/9E8A64?text=Partner+5&font=inter" class="h-8 md:h-10 w-auto" alt="Logo Parceiro 5">
         </div>
     </div>
 </section>

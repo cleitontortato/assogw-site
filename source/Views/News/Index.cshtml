@@ -22,7 +22,7 @@
             var others = Model.Skip(1);
 
             <!-- Featured Item -->
-            <div class="mb-20">
+            <div class="reveal mb-20">
                 <a asp-action="Details" asp-route-id="@featured.Id" class="group block">
                     <div class="aspect-21/9 overflow-hidden mb-6">
                         <img src="@featured.ImageUrl" class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-700" alt="@featured.Title">
@@ -37,16 +37,18 @@
 
             <!-- News Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @{ var newsIdx = 0; }
                 @foreach (var item in others)
                 {
-                    <a asp-action="Details" asp-route-id="@item.Id" class="group block">
+                    <a asp-action="Details" asp-route-id="@item.Id" class="reveal group block" style="--reveal-delay: @(newsIdx * 0.1)s">
                         <div class="aspect-4/3 overflow-hidden mb-5">
                             <img src="@item.ImageUrl" class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500" alt="@item.Title">
                         </div>
                         <span class="date-badge block mb-3">@item.PublishDate.ToString("dd MMM, yyyy")</span>
-                        <h3 class="text-xl font-serif text-gwm-dark group-hover:text-gwm-blue transition-colors line-clamp-2 mb-2">@item.Title</h3>
+                        <h3 class="text-3xl font-serif text-gwm-dark group-hover:text-gwm-blue transition-colors line-clamp-2 mb-2">@item.Title</h3>
                         <p class="text-sm text-gwm-charcoal/60 line-clamp-2">@item.Excerpt</p>
                     </a>
+                    newsIdx++;
                 }
             </div>
         }
