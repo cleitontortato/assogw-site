@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,20 +10,26 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
 
     <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @await RenderSectionAsync("Header", required: false)
 
 </head>
+
 <body class="bg-gwm-light font-sans antialiased text-gwm-charcoal leading-relaxed flex flex-col min-h-screen">
     <header>
-        <nav id="main-nav" class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gwm-gray/50 transition-all duration-300">
+        <nav id="main-nav"
+            class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gwm-gray/50 transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
                     <div class="shrink-0">
@@ -32,15 +39,23 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-6">
-                            <a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Quem Somos</a>
-                            <a asp-area="" asp-controller="News" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Notícias</a>
-                            <a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Concessionárias</a>
-                            <a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Parceiros</a>
-                            <a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Contato</a>
+                            <a asp-area="" asp-controller="Home" asp-action="QuemSomos"
+                                class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Quem
+                                Somos</a>
+                            <a asp-area="" asp-controller="News" asp-action="Index"
+                                class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Notícias</a>
+                            <a asp-area="" asp-controller="Concessionarias" asp-action="Index"
+                                class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Concessionárias</a>
+                            <a asp-area="" asp-controller="Parceiros" asp-action="Index"
+                                class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Parceiros</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Contact"
+                                class="text-gwm-charcoal hover:text-gwm-blue px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200">Contato</a>
                         </div>
                     </div>
                     <div class="-mr-2 flex md:hidden">
-                        <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 text-gwm-charcoal hover:text-gwm-blue focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                        <button type="button" onclick="toggleMobileMenu()"
+                            class="inline-flex items-center justify-center p-2 text-gwm-charcoal hover:text-gwm-blue focus:outline-none"
+                            aria-controls="mobile-menu" aria-expanded="false">
                             <span class="sr-only">Abrir menu</span>
                             <i class="fas fa-bars fa-lg"></i>
                         </button>
@@ -51,11 +66,17 @@
             <!-- Mobile menu -->
             <div class="hidden md:hidden bg-white border-t border-gwm-gray/30" id="mobile-menu">
                 <div class="px-4 pt-2 pb-4 space-y-1">
-                    <a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Quem Somos</a>
-                    <a asp-area="" asp-controller="News" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Notícias</a>
-                    <a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Concessionárias</a>
-                    <a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Parceiros</a>
-                    <a asp-area="" asp-controller="Home" asp-action="Contact" class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Contato</a>
+                    <a asp-area="" asp-controller="Home" asp-action="QuemSomos"
+                        class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Quem
+                        Somos</a>
+                    <a asp-area="" asp-controller="News" asp-action="Index"
+                        class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Notícias</a>
+                    <a asp-area="" asp-controller="Concessionarias" asp-action="Index"
+                        class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Concessionárias</a>
+                    <a asp-area="" asp-controller="Parceiros" asp-action="Index"
+                        class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Parceiros</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Contact"
+                        class="text-gwm-charcoal hover:text-gwm-blue block px-3 py-2 text-base font-medium">Contato</a>
                 </div>
             </div>
         </nav>
@@ -72,10 +93,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <!-- Institucional -->
                 <div>
-                    <h5 class="text-xs uppercase tracking-widest text-white/40 mb-6 font-sans font-medium">Institucional</h5>
+                    <h5 class="text-xs uppercase tracking-widest text-white/40 mb-6 font-sans font-medium">Institucional
+                    </h5>
                     <ul class="space-y-3">
-                        <li><a asp-area="" asp-controller="Home" asp-action="QuemSomos" class="text-white/60 hover:text-white text-sm transition-colors">Quem Somos</a></li>
-                        <li><a asp-area="" asp-controller="News" asp-action="Index" class="text-white/60 hover:text-white text-sm transition-colors">Notícias</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="QuemSomos"
+                                class="text-white/60 hover:text-white text-sm transition-colors">Quem Somos</a></li>
+                        <li><a asp-area="" asp-controller="News" asp-action="Index"
+                                class="text-white/60 hover:text-white text-sm transition-colors">Notícias</a></li>
                     </ul>
                 </div>
 
@@ -83,8 +107,11 @@
                 <div>
                     <h5 class="text-xs uppercase tracking-widest text-white/40 mb-6 font-sans font-medium">Rede</h5>
                     <ul class="space-y-3">
-                        <li><a asp-area="" asp-controller="Concessionarias" asp-action="Index" class="text-white/60 hover:text-white text-sm transition-colors">Concessionárias</a></li>
-                        <li><a asp-area="" asp-controller="Parceiros" asp-action="Index" class="text-white/60 hover:text-white text-sm transition-colors">Parceiros</a></li>
+                        <li><a asp-area="" asp-controller="Concessionarias" asp-action="Index"
+                                class="text-white/60 hover:text-white text-sm transition-colors">Concessionárias</a>
+                        </li>
+                        <li><a asp-area="" asp-controller="Parceiros" asp-action="Index"
+                                class="text-white/60 hover:text-white text-sm transition-colors">Parceiros</a></li>
                     </ul>
                 </div>
 
@@ -92,8 +119,12 @@
                 <div>
                     <h5 class="text-xs uppercase tracking-widest text-white/40 mb-6 font-sans font-medium">Contato</h5>
                     <ul class="space-y-3">
-                        <li><a href="mailto:contato@assogw.com.br" class="text-white/60 hover:text-white text-sm transition-colors">contato@assogw.com.br</a></li>
-                        <li><a href="tel:11999998888" class="text-white/60 hover:text-white text-sm transition-colors">(11) 99999-8888</a></li>
+                        <li><a href="mailto:contato@assogw.com.br"
+                                class="text-white/60 hover:text-white text-sm transition-colors">contato@assogw.com.br</a>
+                        </li>
+                        <li><a href="tel:11999998888"
+                                class="text-white/60 hover:text-white text-sm transition-colors">(11) 99999-8888</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -101,9 +132,12 @@
                 <div>
                     <h5 class="text-xs uppercase tracking-widest text-white/40 mb-6 font-sans font-medium">Social</h5>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-white/60 hover:text-white text-sm transition-colors">LinkedIn</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white text-sm transition-colors">Instagram</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white text-sm transition-colors">Facebook</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white text-sm transition-colors">LinkedIn</a>
+                        </li>
+                        <li><a href="#" class="text-white/60 hover:text-white text-sm transition-colors">Instagram</a>
+                        </li>
+                        <li><a href="#" class="text-white/60 hover:text-white text-sm transition-colors">Facebook</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -112,6 +146,14 @@
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                 <img src="~/images/logo.vector.svg" alt="ASSOGW" class="h-8 w-auto brightness-0 invert opacity-80" />
                 <p class="text-white/40 text-sm">&copy; 2026 ASSOGW — Todos os direitos reservados.</p>
+            </div>
+            <div class="mt-4 pt-8 flex flex-col items-center gap-4">
+                <a href="https://www.tortato.com.br" target="_blank" rel="noopener noreferrer"
+                    class="group inline-flex items-center gap-2 text-white/30 hover:text-white/60 text-xs transition-colors duration-300">
+                    <span>by</span>
+                    <img src="~/images/logo_tortato_horizontal.png" alt="Tortato"
+                        class="h-8 invert-50 group-hover:invert-0 group-hover:mix-blend-hard-light grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-300" />
+                </a>
             </div>
         </div>
     </footer>
@@ -126,4 +168,5 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
